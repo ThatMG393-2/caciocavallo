@@ -1,7 +1,7 @@
 CC         = gcc
 JAVAH      = echo javah
 MYCFLAGS   = -c -Wall -fPIC
-MYLDFLAGS  = -dynamiclib -L${JAVA_HOME}/jre/lib -L${JAVA_HOME}/jre/lib/server -lawt
+MYLDFLAGS  = -dynamiclib -L${JAVA_HOME}/jre/lib/aarch64 -L${JAVA_HOME}/jre/lib/aarch64/server -lawt
 COPY       = cp -a
 
 CLASSPATH  = target/classes:../cacio-shared/target/classes

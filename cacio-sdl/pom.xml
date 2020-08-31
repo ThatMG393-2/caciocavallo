@@ -37,7 +37,7 @@
             <javahClassName>java.awt.event.MouseEvent</javahClassName>
           </javahClassNames>
           <javahSearchJNIFromDependencies>true</javahSearchJNIFromDependencies>
-          <javahOS>darwin</javahOS>
+          <javahOS>linux</javahOS>
           <compilerProvider>generic-classic</compilerProvider>
           <compilerStartOptions>
             <compilerStartOption>-g -Wall -O2 -fomit-frame-pointer -fPIC</compilerStartOption>

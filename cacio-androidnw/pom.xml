@@ -33,24 +33,26 @@
   </parent>
 
   <artifactId>cacio-androidnw</artifactId>
+<!--
   <packaging>nar</packaging>
+-->
 
   <name>Cacio AndroidNW Module</name>
-
+<!--
   <properties>
     <androidnw.include>/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include</directfb.include>
     <androidnw.lib>/usr/lib</directfb.lib>
   </properties>
-
+-->
   <build>
     <plugins>
+<!--
       <plugin>
         <groupId>com.github.maven-nar</groupId>
         <artifactId>nar-maven-plugin</artifactId>
         <version>3.5.2</version>
         <extensions>true</extensions>
         <configuration>
-<!--
           <libraries>
             <library>
               <type>jni</type>
@@ -76,9 +78,9 @@
           <javah>
             <extraClasses><extraClass>java.awt.event.MouseEvent</extraClass></extraClasses>
           </javah>
--->
         </configuration>
       </plugin>
+-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
