@@ -43,9 +43,10 @@
 
   <modules>
     <module>cacio-shared</module>
-    <module>cacio-tta</module>
+    <module>cacio-androidnw</module>
 <!--
     <module>cacio-sdl</module>
+    <module>cacio-tta</module>
     <module>cacio-x11</module>
     <module>cacio-escher</module>
 -->
