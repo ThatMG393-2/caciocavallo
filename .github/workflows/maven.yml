@@ -18,3 +18,10 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml -DskipTests
+
+# cacio-androidnw/target/cacio-androidnw-1.10-SNAPSHOT.jar
+    - name: Upload build output
+      uses: actions/upload-artifact@v1
+      with:
+        name: caciocavallo
+        path: target
