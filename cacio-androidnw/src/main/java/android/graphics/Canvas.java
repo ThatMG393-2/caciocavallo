@@ -29,7 +29,7 @@ import android.text.TextUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
-import javax.microedition.khronos.opengles.GL;
+// import javax.microedition.khronos.opengles.GL;
 
 /**
  * The Canvas class holds the "draw" calls. To draw something, you need
@@ -175,10 +175,12 @@ public class Canvas {
      *
      * @hide
      */
+/*
     @Deprecated
     protected GL getGL() {
         return null;
     }
+*/
 
     /**
      * Indicates whether this Canvas uses hardware acceleration.
