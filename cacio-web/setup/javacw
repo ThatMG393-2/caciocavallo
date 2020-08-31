@@ -1,0 +1,2 @@
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
+java -Dawt.toolkit=net.java.openjdk.awt.peer.web.WebToolkit -Djava.awt.graphicsenv=net.java.openjdk.awt.peer.web.WebGraphicsEnvironment -classpath /storage/sdcard0/AppProjects/caciocavallo/cacio-web/setup/cacioweb.jar:$@

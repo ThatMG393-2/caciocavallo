@@ -1,0 +1,7 @@
+
+*.class
+
+*.h
+*.o
+*.so
+*/target

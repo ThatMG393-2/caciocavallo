@@ -46,6 +46,7 @@ class CacioCanvasPeer extends CacioComponentPeer<Canvas, JPanel>
 
     @Override
     public GraphicsConfiguration getAppropriateGraphicsConfiguration(GraphicsConfiguration gc) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        // throw new UnsupportedOperationException("Not supported yet.");
+		return gc;
     }
 }
