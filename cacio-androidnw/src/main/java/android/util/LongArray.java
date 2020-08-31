@@ -151,7 +151,7 @@ public class LongArray implements Cloneable {
      */
     public void remove(int index) {
         if (index >= mSize) {
-            throw new ArrayIndexOutOfBoundsException(mSize, index);
+            throw new ArrayIndexOutOfBoundsException(/* mSize, */ index);
         }
         System.arraycopy(mValues, index + 1, mValues, index, mSize - index - 1);
         mSize--;
