@@ -127,7 +127,7 @@ public class LongArray implements Cloneable {
      */
     public long get(int index) {
         if (index >= mSize) {
-            throw new ArrayIndexOutOfBoundsException(mSize, index);
+            throw new ArrayIndexOutOfBoundsException(/* mSize, */ index);
         }
         return mValues[index];
     }
