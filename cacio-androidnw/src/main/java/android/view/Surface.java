@@ -40,7 +40,7 @@ public class Surface /* implements Parcelable */ {
 	static {
 		System.loadLibrary("binexecutor");
 	}
-	public static native Surface nativeGetBridgeSurfaceAWT();
+	public static native long nativeGetBridgeSurfaceAWT();
 	
     // private static native long nativeCreateFromSurfaceControl(long surfaceControlNativeObject);
 
@@ -86,7 +86,8 @@ public class Surface /* implements Parcelable */ {
     private long mLockedObject;
     private int mGenerationId; // incremented each time mNativeObject changes
     private final Canvas mCanvas = new CompatibleCanvas();
-
+	public static final Surface ANDROID_SURFACE_BRIDGE = new Surface(nativeGetBridgeSurfaceAWT());
+	
     // A matrix to scale the matrix set by application. This is set to null for
     // non compatibility mode.
     private Matrix mCompatibleMatrix;

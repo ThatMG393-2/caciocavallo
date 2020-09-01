@@ -373,6 +373,19 @@ public class BitmapFactory {
             requestCancel();
         }
     }
+	
+	private static BitmapFactory.Options options = new BitmapFactory.Options();
+	public static Bitmap decodeBufferedImage(java.awt.image.BufferedImage image) {
+		// Bitmap bm = Bitmap.createBitmap(image.getWidth(), image.getHeight(), Bitmap.Config.ARGB_8888);
+		
+		options.outWidth = image.getWidth();
+		options.outHeight = image.getHeight();
+		
+		byte[] pixels = ((DataBufferByte) image.getRaster().getDataBuffer()).getData();
+		return decodeByteArray(pixels, 0, pixels.length, options);
+		
+		// return bm;
+	}
 
     /**
      * Decode a file path into a bitmap. If the specified file name is null,

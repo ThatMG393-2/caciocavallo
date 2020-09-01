@@ -62,6 +62,7 @@ public class CTCScreen implements PlatformScreen {
             }
             g2d = new WindowClippedGraphics(g2d, a);
         }
+		
         return g2d;
     }
 
