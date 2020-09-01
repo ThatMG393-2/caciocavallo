@@ -13,7 +13,7 @@ import sun.java2d.SurfaceManagerFactory;
 public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 	static {
 		// Maybe cause problem namespace on Android 7+
-		System.loadLibrary("android_runtime");
+		System.load("/system/lib" + (System.grtProperty("os.arch").contains("64") ? "64" : "") + "/libandroid_runtime.so");
 		
 		try {
 			Robot robot = new Robot();
