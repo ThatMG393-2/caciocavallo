@@ -13,13 +13,13 @@ import sun.java2d.SurfaceManagerFactory;
 
 public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 	static {
+		OpenJDKNativeRegister.registerNatives();
+		
 		// FIXME a better way to get window graphics output
 		new Thread(new Runnable(){
 				@Override
 				public void run() {
 					try {
-						OpenJDKNativeRegister.registerNatives();
-
 						Thread.sleep(200);
 
 						Robot robot = new Robot();
@@ -32,6 +32,7 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 							Thread.sleep(16);
 						}
 					} catch (Throwable th) {
+						System.err.println(Log.getStackTraceString(th));
 						Log.e("AndroidAWTRender", "Thread stopped due to an error", th);
 					}
 				}
