@@ -1,11 +1,23 @@
 package android.os;
+import java.io.*;
 
 public class OpenJDKNativeRegister
 {
 	private static final String[] nativeClassArr;
 	
 	static {
-		System.loadLibrary("binexecutor");
+		// This not work, so try locate in LD_LIBRARY_PATH
+		// System.loadLibrary("binexecutor");
+		
+		File currLibFile;
+		for (String ldLib : System.getenv("LD_LIBRARY_PATH").split(":")) {
+			if (ldLib.isEmpty()) continue;
+			currLibFile = new File(ldLib, "libbinexecutor.so");
+			if (currLibFile.exists()) {
+				System.load(currLibFile.getAbsolutePath());
+				break;
+			}
+		}
 
 		nativeClassArr = new String[]{
 			
