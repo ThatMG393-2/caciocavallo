@@ -2,6 +2,8 @@ package android.os;
 
 public class OpenJDKNativeRegister
 {
+	private static final String[] nativeClassArr;
+	
 	static {
 		System.loadLibrary("binexecutor");
 
@@ -462,8 +464,6 @@ public class OpenJDKNativeRegister
 		};
 	}
 	
-	private static final String[] nativeClassArr;
-	
 	private static native int nativeRegisterNatives(String registerSymbol);
 	private static void tryRegisterNatives(String className) {
 		try {
@@ -481,6 +481,8 @@ public class OpenJDKNativeRegister
 	}
 	
 	public static void registerNatives() {
+		System.out.println("Register native classes: " + Integer.toString(nativeClassArr.length));
+		
 		// This may cause huge lag because of ClassNotFoundException
 		for (String nativeClass : nativeClassArr) {
 			tryRegisterNatives(nativeClass);
