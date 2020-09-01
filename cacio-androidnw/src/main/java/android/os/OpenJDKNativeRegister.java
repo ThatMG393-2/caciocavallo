@@ -20,183 +20,6 @@ public class OpenJDKNativeRegister
 		}
 
 		nativeClassArr = new String[]{
-			
-			
-/*
-			"android.os.Binder",
-			"android.os.Process",
-			"android.graphics.Bitmap",
-			"android.graphics.BitmapFactory",
-			"android.graphics.BitmapRegionDecoder",
-			"android.graphics.ByteBufferStreamAdaptor",
-			"android.graphics.Camera",
-			"android.graphics.CreateJavaOutputStreamAdaptor",
-			"android.graphics.GraphicBuffer",
-			"android.graphics.Graphics",
-			"android.graphics.ImageDecoder",
-			"android.graphics.drawable.AnimatedImageDrawable",
-			"android.graphics.Interpolator",
-			"android.graphics.MaskFilter",
-			"android.graphics.Movie",
-			"android.graphics.NinePatch",
-			"android.graphics.PathEffect",
-			"android.graphics.Shader",
-			"android.graphics.Typeface",
-			"android.graphics.YuvImage",
-			"com.google.android.gles.jni.EGLImpl",
-			"com.google.android.gles.jni.GLImpl",
-			"android.opengl.jni.EGL14",
-			"android.opengl.jni.EGL15",
-			"android.opengl.jni.EGLExt",
-			"android.opengl.jni.GLES10",
-			"android.opengl.jni.GLES10Ext",
-			"android.opengl.jni.GLES11",
-			"android.opengl.jni.GLES11Ext",
-			"android.opengl.jni.GLES20",
-			"android.opengl.jni.GLES30",
-			"android.opengl.jni.GLES31",
-			"android.opengl.jni.GLES31Ext",
-			"android.opengl.jni.GLES32",
-			"android.hardware.Camera",
-			"android.hardware.camera2.CameraMetadata",
-			"android.hardware.camera2.legacy.LegacyCameraDevice",
-			"android.hardware.camera2.legacy.PerfMeasurement",
-			"android.hardware.camera2.DngCreator",
-			"android.hardware.HardwareBuffer",
-			"android.hardware.SensorManager",
-			"android.hardware.SerialPort",
-			"android.hardware.SoundTrigger",
-			"android.hardware.UsbDevice",
-			"android.hardware.UsbDeviceConnection",
-			"android.hardware.UsbRequest",
-			"android.hardware.location.ActivityRecognitionHardware",
-			"android.media.AudioEffectDescriptor",
-			"android.media.AudioRecord",
-			"android.media.AudioSystem",
-			"android.media.AudioTrack",
-			"android.media.AudioAttributes",
-			"android.media.AudioProductStrategies",
-			"android.media.AudioVolumeGroups",
-			"android.media.AudioVolumeGroupChangeHandler",
-			"android.media.MicrophoneInfo",
-			"android.media.ToneGenerator",
-			"android.media.midi",
-			// namespace android {
-			"android.app.admin.SecurityLog",
-			"android.content.AssetManager",
-			"android.util.EventLog",
-			"android.util.StatsLog",
-			"android.util.StatsLogInternal",
-			"android.util.Log",
-			"android.util.MemoryIntArray",
-			"android.util.PathParser",
-			"android.content.StringBlock",
-			"android.content.XmlBlock",
-			"android.content.res.ApkAssets",
-			"android.graphics.Canvas",
-			"android.graphics.CanvasProperty",
-			"android.graphics.ColorFilter",
-			"android.graphics.ColorSpace",
-			"android.graphics.DrawFilter",
-			"android.graphics.FontFamily",
-			"android.graphics.Matrix",
-			"android.graphics.Paint",
-			"android.graphics.Path",
-			"android.graphics.PathMeasure",
-			"android.graphics.Picture",
-			"android.graphics.Region",
-			"android.graphics.SurfaceTexture",
-			"android.graphics.drawable.AnimatedVectorDrawable",
-			"android.graphics.drawable.VectorDrawable",
-			"android.graphics.fonts.Font",
-			"android.graphics.fonts.FontFamily",
-			"android.graphics.pdf.PdfDocument",
-			"android.graphics.pdf.PdfEditor",
-			"android.graphics.pdf.PdfRenderer",
-			"android.graphics.text.MeasuredText",
-			"android.graphics.text.LineBreaker",
-			"android.view.DisplayEventReceiver",
-			"android.view.DisplayListCanvas",
-			"android.view.InputApplicationHandle",
-			"android.view.InputWindowHandle",
-			"android.view.TextureLayer",
-			"android.view.RenderNode",
-			"android.view.RenderNodeAnimator",
-			"android.view.Surface",
-			"android.view.SurfaceControl",
-			"android.view.SurfaceSession",
-			"android.view.CompositionSamplingListener",
-			"android.view.TextureView",
-			"android.view.ThreadedRenderer",
-			"com.android.internal.view.animation.NativeInterpolatorFactoryHelper",
-			"android.database.CursorWindow",
-			"android.database.SQLiteConnection",
-			"android.database.SQLiteGlobal",
-			"android.database.SQLiteDebug",
-			"android.os.Debug",
-			"android.os.GraphicsEnvironment",
-			"android.os.HidlSupport",
-			"android.os.HwBinder",
-			"android.os.HwBlob",
-			"android.os.HwParcel",
-			"android.os.HwRemoteBinder",
-			"android.os.NativeHandle",
-			"android.os.MessageQueue",
-			"android.os.Parcel",
-			"android.os.SELinux",
-			"android.os.VintfObject",
-			"android.os.VintfRuntimeInfo",
-			"android.os.SystemProperties",
-			"android.os.SystemClock",
-			"android.os.Trace",
-			"android.os.FileObserver",
-			"android.os.UEventObserver",
-			"android.os.HidlMemory",
-			"android.os.MemoryFile",
-			"android.os.SharedMemory",
-			"android.net.LocalSocketImpl",
-			"android.net.NetworkUtils",
-			"android.text.AndroidCharacter",
-			"android.text.Hyphenator",
-			"android.opengl.classes",
-			"android.ddm.DdmHandleNativeHeap",
-			"android.server.NetworkManagementSocketTagger",
-			"android.backup.BackupDataInput",
-			"android.backup.BackupDataOutput",
-			"android.backup.FileBackupHelperBase",
-			"android.backup.BackupHelperDispatcher",
-			"android.app.backup.FullBackup",
-			"android.app.Activity",
-			"android.app.ActivityThread",
-			"android.app.NativeActivity",
-			"android.media.RemoteDisplay",
-			"android.util.jar.StrictJarFile",
-			"android.view.InputChannel",
-			"android.view.InputDevice",
-			"android.view.InputEventReceiver",
-			"android.view.InputEventSender",
-			"android.view.InputQueue",
-			"android.view.KeyCharacterMap",
-			"android.view.KeyEvent",
-			"android.view.MotionEvent",
-			"android.view.PointerIcon",
-			"android.view.VelocityTracker",
-			"android.content.res.ObbScanner",
-			"android.content.res.Configuration",
-			"android.animation.PropertyValuesHolder",
-			"android.security.Scrypt",
-			"com.android.internal.content.NativeLibraryHelper",
-			"com.android.internal.os.AtomicDirectory",
-			"com.android.internal.os.ClassLoaderFactory",
-			"com.android.internal.os.FuseAppLoop",
-			"com.android.internal.os.KernelCpuUidBpfMapReader",
-			"com.android.internal.os.KernelSingleUidTimeReader",
-			"com.android.internal.os.Zygote",
-			"com.android.internal.os.ZygoteInit",
-			"com.android.internal.util.VirtualRefBasePtr"
-*/
-
-
 // 00082414 T 
 			"_Z26register_android_os_BinderP7_JNIEnv",
 // 00084908 T 
@@ -478,18 +301,23 @@ public class OpenJDKNativeRegister
 	
 	private static native int nativeRegisterNatives(String registerSymbol);
 	private static void tryRegisterNatives(String className) {
+
+		// Find class or ignore if ClassNotFoundException
+		int indexRegister = className.indexOf("register_");
+		int indexP7Env = className.indexOf("P7_JNIEnv");
+		boolean isInAndroidNamespace = className.startsWith("_ZN7android") && className.endsWith("EP7_JNIEnv");
+		String classStr = className.substring(indexRegister + 9, indexP7Env - (isInAndroidNamespace ? 1 : 0)).replace('_', '.');
 		try {
-			// Find class or ignore if ClassNotFoundException
-			int indexRegister = className.indexOf("register_");
-			int indexP7Env = className.indexOf("P7_JNIEnv");
-			boolean isInAndroidNamespace = className.startsWith("_ZN7android") && className.endsWith("EP7_JNIEnv");
-			String classStr = className.substring(indexRegister + 9, indexP7Env - (isInAndroidNamespace ? 1 : 0)).replace('_', '.');
 			Class.forName(classStr);
-			
-			int result = nativeRegisterNatives(className);
-			// Debug
-			System.out.println("Register native for " + classStr + " returned " + Integer.toString(result));
-		} catch (ClassNotFoundException unused) {}
+		} catch (ClassNotFoundException ex) {
+			return;
+		} catch (Throwable th) {
+			// Ignore it, maybe unexpected linking to native, etc...
+		}
+
+		int result = nativeRegisterNatives(className);
+		// Debug
+		System.out.println("Register native for " + classStr + " returned " + Integer.toString(result));
 	}
 	
 	public static void registerNatives() {
