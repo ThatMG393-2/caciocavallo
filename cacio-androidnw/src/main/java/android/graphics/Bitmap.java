@@ -87,7 +87,12 @@ public final class Bitmap implements Parcelable {
     private static volatile Matrix sScaleMatrix;
 
     private static volatile int sDefaultDensity = -1;
-
+	
+	static {
+		// TODO Maybe fix problem namespace on Android 7+
+		System.load("/system/lib" + (System.getProperty("os.arch").contains("64") ? "64" : "") + "/libandroid_runtime.so");
+	}
+	
     /**
      * For backwards compatibility, allows the app layer to change the default
      * density when running old apps.

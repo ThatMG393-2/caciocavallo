@@ -105,7 +105,12 @@ public final class Log {
                 // RuntimeInit.wtf(tag, what, system);
             }
         };
-
+		
+	static {
+		// TODO Maybe fix problem namespace on Android 7+
+		System.load("/system/lib" + (System.getProperty("os.arch").contains("64") ? "64" : "") + "/libandroid_runtime.so");
+	}
+	
     private Log() {
     }
 

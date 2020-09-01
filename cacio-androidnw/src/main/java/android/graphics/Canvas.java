@@ -122,6 +122,11 @@ public class Canvas {
         }
     }
 
+	static {
+		// TODO Maybe fix problem namespace on Android 7+
+		System.load("/system/lib" + (System.getProperty("os.arch").contains("64") ? "64" : "") + "/libandroid_runtime.so");
+	}
+	
     /**
      * Construct an empty raster canvas. Use setBitmap() to specify a bitmap to
      * draw into.  The initial target density is {@link Bitmap#DENSITY_NONE};
