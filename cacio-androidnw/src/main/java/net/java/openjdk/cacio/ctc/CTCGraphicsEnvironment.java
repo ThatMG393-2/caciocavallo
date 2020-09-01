@@ -22,7 +22,7 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 					while (true) {
 						// Window[] windowList = Window.getWindows();
 						BufferedImage capture = robot.createScreenCapture(new Rectangle(0, 0, Toolkit.getDefaultToolkit().getScreenSize().width,  Toolkit.getDefaultToolkit().getScreenSize().height));
-						Canvas androidCanvas = Surface.ANDROID_SURFACE_BRIDGE.lockCanvas(new Rect(0, 0, Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height));
+						android.graphics.Canvas androidCanvas = Surface.ANDROID_SURFACE_BRIDGE.lockCanvas(new Rect(0, 0, Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height));
 						androidCanvas.drawBitmap(BitmapFactory.decodeBufferedImage(capture), 0, 0, null);
 						Surface.ANDROID_SURFACE_BRIDGE.unlockCanvasAndPost(androidCanvas);
 						Thread.sleep(16);

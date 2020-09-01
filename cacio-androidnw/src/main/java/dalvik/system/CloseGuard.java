@@ -206,7 +206,8 @@ public final class CloseGuard {
      */
     private static final class DefaultReporter implements Reporter {
         @Override public void report (String message, Throwable allocationSite) {
-            System.logW(message, allocationSite);
+            // System.logW(message, allocationSite);
+			android.util.Log.w("System", message, allocationSite);
         }
     }
 }

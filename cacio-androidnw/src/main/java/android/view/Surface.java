@@ -351,7 +351,7 @@ public class Surface /* implements Parcelable */ {
         }
     }
 
-    @Override
+    // @Override
     public int describeContents() {
         return 0;
     }
