@@ -474,7 +474,9 @@ public class OpenJDKNativeRegister
 			String classStr = className.substring(indexRegister + 9, indexP7Env - (isInAndroidNamespace ? 1 : 0)).replace('_', '.');
 			Class.forName(classStr);
 			
-			nativeRegisterNatives(className);
+			int result = nativeRegisterNatives(className);
+			// Debug
+			System.out.println("Register native for " + classStr + " returned " + Integer.toString(result));
 		} catch (ClassNotFoundException unused) {}
 	}
 	
