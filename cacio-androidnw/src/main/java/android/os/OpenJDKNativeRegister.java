@@ -58,6 +58,8 @@ public class OpenJDKNativeRegister
 			"_Z33register_android_opengl_jni_EGL14P7_JNIEnv",
 // 00089b10 T 
 			"_Z34register_android_graphics_GraphicsP7_JNIEnv",
+// 00088ad8 T 
+			"_ZN7android36register_android_graphics_FontFamilyEP7_JNIEnv",
 // 00090f0c T 
 			"_Z34register_android_graphics_TypefaceP7_JNIEnv",
 // 00091a4c T 
@@ -214,8 +216,6 @@ public class OpenJDKNativeRegister
 			"_ZN7android36register_android_content_StringBlockEP7_JNIEnv",
 // 00088840 T 
 			"_ZN7android36register_android_graphics_DrawFilterEP7_JNIEnv",
-// 00088ad8 T 
-			"_ZN7android36register_android_graphics_FontFamilyEP7_JNIEnv",
 // 0008e87c T 
 			"_ZN7android36register_android_graphics_PorterDuffEP7_JNIEnv",
 // 0008efb4 T 
