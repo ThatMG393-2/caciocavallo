@@ -127,7 +127,9 @@ public class OpenJDKNativeRegister
 // 000a201c T 
 			"_Z62register_android_hardware_location_ActivityRecognitionHardwareP7_JNIEnv",
 // 0005a9c8 T 
-			"_ZN7android14AndroidRuntime21registerNativeMethodsEP7_JNIEnv",
+			// "_ZN7android14AndroidRuntime21registerNativeMethodsEP7_JNIEnv",
+// 0007db04 T 
+			"_ZN7android36register_android_os_SystemPropertiesEP7_JNIEnv",
 // 0007c0a0 T 
 			"_ZN7android25register_android_os_DebugEP7_JNIEnv",
 // 0007df80 T 
@@ -222,8 +224,6 @@ public class OpenJDKNativeRegister
 			"_ZN7android36register_android_media_RemoteDisplayEP7_JNIEnv",
 // 0007eb34 T 
 			"_ZN7android36register_android_net_LocalSocketImplEP7_JNIEnv",
-// 0007db04 T 
-			"_ZN7android36register_android_os_SystemPropertiesEP7_JNIEnv",
 // 000722e4 T 
 			"_ZN7android36register_android_view_SurfaceControlEP7_JNIEnv",
 // 00072ff0 T 
