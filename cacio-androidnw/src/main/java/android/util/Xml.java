@@ -94,7 +94,7 @@ public class Xml {
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, true);
             return parser;
         } catch (XmlPullParserException e) {
-            throw new AssertionError();
+            throw new AssertionError("", e);
         }
     }
 
