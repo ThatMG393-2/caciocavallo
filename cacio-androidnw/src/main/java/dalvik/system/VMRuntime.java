@@ -16,6 +16,7 @@
 
 package dalvik.system;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,8 +39,10 @@ public final class VMRuntime {
     static {
         ABI_TO_INSTRUCTION_SET_MAP.put("armeabi", "arm");
         ABI_TO_INSTRUCTION_SET_MAP.put("armeabi-v7a", "arm");
+/*
         ABI_TO_INSTRUCTION_SET_MAP.put("mips", "mips");
         ABI_TO_INSTRUCTION_SET_MAP.put("mips64", "mips64");
+*/
         ABI_TO_INSTRUCTION_SET_MAP.put("x86", "x86");
         ABI_TO_INSTRUCTION_SET_MAP.put("x86_64", "x86_64");
         ABI_TO_INSTRUCTION_SET_MAP.put("arm64-v8a", "arm64");
@@ -67,42 +70,75 @@ public final class VMRuntime {
      * Returns a copy of the VM's command-line property settings.
      * These are in the form "name=value" rather than "-Dname=value".
      */
-    public native String[] properties();
+    public /* native */ String[] properties() {
+		System.out.println("FIXME unimplemented dalvik.system.VMRuntime.properties()");
+		return new String[]{};
+	}
 
     /**
      * Returns the VM's boot class path.
      */
-    public native String bootClassPath();
+    public /* native */ String bootClassPath() {
+		return "";
+		// System.getProperty("sun.boot.class.path");
+	}
 
     /**
      * Returns the VM's class path.
      */
-    public native String classPath();
+    public /* native */ String classPath() {
+		return System.getProperty("java.class.path");
+	}
 
     /**
      * Returns the VM's version.
      */
-    public native String vmVersion();
+    public /* native */ String vmVersion() {
+		return System.getProperty("java.version");
+	}
 
     /**
      * Returns the name of the shared library providing the VM implementation.
      */
-    public native String vmLibrary();
+    public /* native */ String vmLibrary() {
+		System.out.println("FIXME unimplemented dalvik.system.VMRuntime.vmLibrary()");
+		return "";
+	}
 
     /**
      * Returns the VM's instruction set.
      */
-    public native String vmInstructionSet();
+    public /* native */ String vmInstructionSet() {
+		String osArch = System.getProperty("os.arch");
+		if (is64Bit()) {
+			if (osArch.contains("amd") || osArch.contains("x86")) {
+				return "x86_64";
+			} else { // ARM
+				return "arm64";
+			}
+		} else {
+			if (osArch.contains("x86")) {
+				return "x86";
+			} else {
+				return "arm";
+			}
+		}
+	}
 
     /**
      * Returns whether the VM is running in 64-bit mode.
      */
-    public native boolean is64Bit();
+    public /* native */ boolean is64Bit() {
+		return System.getProperty("os.arch").contains("64");
+	}
 
     /**
      * Returns whether the VM is running with JNI checking enabled.
      */
-    public native boolean isCheckJniEnabled();
+    public /* native */ boolean isCheckJniEnabled() {
+		// Does java support and a way to check?
+		return false;
+	}
 
     /**
      * Gets the current ideal heap utilization, represented as a number
@@ -112,7 +148,9 @@ public final class VMRuntime {
      *
      * @return the current ideal heap utilization
      */
-    public native float getTargetHeapUtilization();
+    public /* native */ float getTargetHeapUtilization() {
+		return 1f;
+	}
 
     /**
      * Sets the current ideal heap utilization, represented as a number
@@ -164,7 +202,7 @@ public final class VMRuntime {
         return targetSdkVersion;
     }
 
-    private native void setTargetSdkVersionNative(int targetSdkVersion);
+    private /* native */ void setTargetSdkVersionNative(int targetSdkVersion) {}
 
     /**
      * This method exists for binary compatibility.  It was part of a
@@ -206,7 +244,7 @@ public final class VMRuntime {
      * @param newTarget the new suggested ideal heap utilization.
      *                  This value may be adjusted internally.
      */
-    private native void nativeSetTargetHeapUtilization(float newTarget);
+    private /* native */ void nativeSetTargetHeapUtilization(float newTarget) {}
 
     /**
      * This method exists for binary compatibility.  It was part of
@@ -237,44 +275,55 @@ public final class VMRuntime {
      * Tells the VM to enable the JIT compiler. If the VM does not have a JIT
      * implementation, calling this method should have no effect.
      */
-    public native void startJitCompilation();
+    public /* native */ void startJitCompilation() {}
 
     /**
      * Tells the VM to disable the JIT compiler. If the VM does not have a JIT
      * implementation, calling this method should have no effect.
      */
-    public native void disableJitCompilation();
+    public /* native */ void disableJitCompilation() {}
 
     /**
      * Returns an array allocated in an area of the Java heap where it will never be moved.
      * This is used to implement native allocations on the Java heap, such as DirectByteBuffers
      * and Bitmaps.
      */
-    public native Object newNonMovableArray(Class<?> componentType, int length);
+    public /* native */ Object newNonMovableArray(Class<?> componentType, int length) {
+		// Stub to this, so may not correctly...
+		return Array.newInstance(componentType, length);
+	}
 
     /**
      * Returns an array of at least minLength, but potentially larger. The increased size comes from
      * avoiding any padding after the array. The amount of padding varies depending on the
      * componentType and the memory allocator implementation.
      */
-    public native Object newUnpaddedArray(Class<?> componentType, int minLength);
+    public /* native */ Object newUnpaddedArray(Class<?> componentType, int minLength) {
+		// FIXME this class is not implemented correctly
+		return newNonMovableArray(componentType, minLength);
+	}
 
     /**
      * Returns the address of array[0]. This differs from using JNI in that JNI might lie and
      * give you the address of a copy of the array when in forcecopy mode.
      */
-    public native long addressOf(Object array);
+    public /* native */ long addressOf(Object array) {
+		System.out.println("FIXME unimplemented dalvik.system.VMRuntime.addressOf()");
+		return 0l;
+	}
 
     /**
      * Removes any growth limits, allowing the application to allocate
      * up to the maximum heap size.
      */
-    public native void clearGrowthLimit();
+    public /* native */ void clearGrowthLimit() {}
 
     /**
      * Returns true if either a Java debugger or native debugger is active.
      */
-    public native boolean isDebuggerActive();
+    public /* native */ boolean isDebuggerActive() {
+		return false;
+	}
 
     /**
      * Registers a native allocation so that the heap knows about it and performs GC as required.
@@ -284,32 +333,34 @@ public final class VMRuntime {
      * unusually high rate and a GC is performed inside of the function to prevent memory usage
      * from excessively increasing.
      */
-    public native void registerNativeAllocation(int bytes);
+    public /* native */ void registerNativeAllocation(int bytes) {}
 
     /**
      * Registers a native free by reducing the number of native bytes accounted for.
      */
-    public native void registerNativeFree(int bytes);
+    public /* native */ void registerNativeFree(int bytes) {}
 
-    public native void trimHeap();
-    public native void concurrentGC();
+    public /* native */ void trimHeap() {}
+    public /* native */ void concurrentGC() {
+		System.out.println("FIXME unimplemented dalvik.system.VMRuntime.concurrentGC()");
+	}
 
     /**
      * Let the heap know of the new process state. This can change allocation and garbage collection
      * behavior regarding trimming and compaction.
      */
-    public native void updateProcessState(int state);
+    public /* native */ void updateProcessState(int state) {}
 
     /**
      * Fill in dex caches with classes, fields, and methods that are
      * already loaded. Typically used after Zygote preloading.
      */
-    public native void preloadDexCaches();
+    public /* native */ void preloadDexCaches() {}
 
     /**
      * Register application info
      */
-    public static native void registerAppInfo(String appDir, String processName, String pkgname);
+    public static /* native */ void registerAppInfo(String appDir, String processName, String pkgname) {}
 
     /**
      * Returns the runtime instruction set corresponding to a given ABI. Multiple
@@ -342,11 +393,15 @@ public final class VMRuntime {
      * set mapped from disk storage, versus being interpretted from
      * dirty pages in memory.
      */
-    public static native boolean isBootClassPathOnDisk(String instructionSet);
+    public static /* native */ boolean isBootClassPathOnDisk(String instructionSet) {
+		return false;
+	}
 
     /**
      * Returns the instruction set of the current runtime.
      */
-    public static native String getCurrentInstructionSet();
+    public static /* native */ String getCurrentInstructionSet() {
+		return getRuntime().vmInstructionSet();
+	}
 
 }
