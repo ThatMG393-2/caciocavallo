@@ -65,10 +65,15 @@
       <id>ossrh</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
+	
+	  https://repo1.maven.org/maven2
 -->
+ 	<repositories>
+		
+	</repositories>
 	<repository>
 	  <id>mvnrepo</id>
-	  <url>https://repo1.maven.org/maven2</url>
+		<url>https://clojars.org/repo/</url>
 	</repository>
   </distributionManagement>
 
