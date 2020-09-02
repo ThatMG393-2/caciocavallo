@@ -104,8 +104,6 @@ public class OpenJDKNativeRegister
 			"_Z38register_android_graphics_InterpolatorP7_JNIEnv",
 // 000a057c T 
 			"_Z38register_android_hardware_SoundTriggerP7_JNIEnv",
-// 00087464 T 
-			"_Z39register_android_graphics_BitmapFactoryP7_JNIEnv",
 // 0009f1bc T 
 			"_Z39register_android_hardware_SensorManagerP7_JNIEnv",
 // 00057b40 T 
@@ -307,7 +305,9 @@ public class OpenJDKNativeRegister
 // 0005c2c4 T 
 			"_ZN7android57register_com_android_internal_content_NativeLibraryHelperEP7_JNIEnv",
 // 000a55c0 T 
-			"_ZN7android76register_com_android_internal_view_animation_NativeInterpolatorFactoryHelperEP7_JNIEnv"
+			"_ZN7android76register_com_android_internal_view_animation_NativeInterpolatorFactoryHelperEP7_JNIEnv",
+// 00087464 T 
+			"_Z39register_android_graphics_BitmapFactoryP7_JNIEnv"
 		};
 	}
 	
