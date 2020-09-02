@@ -383,11 +383,15 @@ public class Color {
         if (i != null) {
             return i;
         } else {
+			// TODO implement or this
+			return -1;
+/*
             try {
                 return XmlUtils.convertValueToInt(color, -1);
             } catch (NumberFormatException nfe) {
                 return -1;
             }
+*/
         }
     }
 
