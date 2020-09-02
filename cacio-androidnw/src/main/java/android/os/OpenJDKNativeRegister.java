@@ -321,11 +321,11 @@ public class OpenJDKNativeRegister
 		String classStr = className.substring(indexRegister + 9, indexP7Env - (isInNamespace ? 1 : 0)).replace('_', '.');
 		try {
 			Class.forName(classStr);
-		} catch (ClassNotFoundException ex) {
+		} catch (ClassNotFoundException unused) {
 			return;
-		} /* catch (Throwable th) {
-			// Ignore it, maybe unexpected linking to native, etc...
-		} */
+		} catch (UnsatisfiedLinkError unused) {
+			// Maybe ignore it?
+		}
 
 		int result = nativeRegisterNatives(className);
 		// Debug
