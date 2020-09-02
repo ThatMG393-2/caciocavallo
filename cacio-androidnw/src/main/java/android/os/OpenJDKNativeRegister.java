@@ -31,7 +31,9 @@ public class OpenJDKNativeRegister
 			"_ZN3art32register_dalvik_system_VMRuntimeEP7_JNIEnv",
 // 001f40c4 T
 			"_ZN3art34register_dalvik_system_ZygoteHooksEP7_JNIEnv",
-*/
+			 */
+// 00083528 T 
+			"_ZN7android25register_android_util_LogEP7_JNIEnv",
 // 00082414 T 
 			"_Z26register_android_os_BinderP7_JNIEnv",
 // 00084908 T 
@@ -130,8 +132,6 @@ public class OpenJDKNativeRegister
 			"_ZN7android25register_android_os_DebugEP7_JNIEnv",
 // 0007df80 T 
 			"_ZN7android25register_android_os_TraceEP7_JNIEnv",
-// 00083528 T 
-			"_ZN7android25register_android_util_LogEP7_JNIEnv",
 // 0007f4cc T 
 			"_ZN7android26register_android_nio_utilsEP7_JNIEnv",
 // 0007d08c T 
