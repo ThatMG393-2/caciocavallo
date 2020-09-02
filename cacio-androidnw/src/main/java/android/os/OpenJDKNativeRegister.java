@@ -300,7 +300,7 @@ public class OpenJDKNativeRegister
 	}
 	
 	private static native int nativeRegisterNatives(String registerSymbol);
-	private static void tryRegisterNatives(String className) {
+	public static void tryRegisterNatives(String className) {
 
 		// Find class or ignore if ClassNotFoundException
 		int indexRegister = className.indexOf("register_");
@@ -311,9 +311,9 @@ public class OpenJDKNativeRegister
 			Class.forName(classStr);
 		} catch (ClassNotFoundException ex) {
 			return;
-		} catch (Throwable th) {
+		} /* catch (Throwable th) {
 			// Ignore it, maybe unexpected linking to native, etc...
-		}
+		} */
 
 		int result = nativeRegisterNatives(className);
 		// Debug
