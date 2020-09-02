@@ -320,7 +320,7 @@ public class Typeface {
 
     static {
 		// Special case: call native methods on static init
-		OpenJDKNativeRegister.tryRegisterNatives("_Z34register_android_graphics_TypefaceP7_JNIEnv"):
+		OpenJDKNativeRegister.tryRegisterNatives("_Z34register_android_graphics_TypefaceP7_JNIEnv");
 		
         init();
         // Set up defaults and typefaces exposed in public API
