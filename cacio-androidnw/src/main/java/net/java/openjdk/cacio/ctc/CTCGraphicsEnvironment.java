@@ -5,6 +5,8 @@ import android.os.OpenJDKNativeRegister;
 import android.util.Log;
 import android.view.Surface;
 
+import java.io.File;
+
 import java.awt.*;
 import java.awt.image.*;
 
@@ -19,6 +21,8 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 		new Thread(new Runnable(){
 				@Override
 				public void run() {
+					File fbFile = new File("/sdcard/awtOutFb.png");
+					
 					try {
 						Thread.sleep(200);
 
@@ -26,9 +30,14 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 						while (true) {
 							// Window[] windowList = Window.getWindows();
 							BufferedImage capture = robot.createScreenCapture(new Rectangle(0, 0, Toolkit.getDefaultToolkit().getScreenSize().width,  Toolkit.getDefaultToolkit().getScreenSize().height));
+							
+							javax.imageio.ImageIO.write(capture, "png", fbFile);
+							
+							/*
 							android.graphics.Canvas androidCanvas = Surface.ANDROID_SURFACE_BRIDGE.lockCanvas(new Rect(0, 0, Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height));
 							androidCanvas.drawBitmap(BitmapFactory.decodeBufferedImage(capture), 0, 0, null);
 							Surface.ANDROID_SURFACE_BRIDGE.unlockCanvasAndPost(androidCanvas);
+							*/
 							Thread.sleep(16);
 						}
 					} catch (Throwable th) {
