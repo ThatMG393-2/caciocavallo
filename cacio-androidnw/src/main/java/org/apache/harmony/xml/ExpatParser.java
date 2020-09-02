@@ -275,7 +275,7 @@ class ExpatParser {
                     systemId = systemUri.toString();
                 }
             } catch (Exception e) {
-                System.logI("Could not resolve '" + systemId + "' relative to"
+                android.util.Log.i("System", "Could not resolve '" + systemId + "' relative to"
                         + " '" + this.systemId + "' at " + locator, e);
             }
         }
