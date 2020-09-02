@@ -323,8 +323,12 @@ public class OpenJDKNativeRegister
 			Class.forName(classStr);
 		} catch (ClassNotFoundException unused) {
 			return;
-		} catch (UnsatisfiedLinkError unused) {
-			// Maybe ignore it?
+		} catch (UnsatisfiedLinkError e) {
+			// A special case that need add registerNatives code in static block
+			throw new RuntimeException(
+				e.getStackTrace()[0].getClassName() + " seems a special case that need add registerNatives code in static block",
+				e
+			);
 		}
 
 		int result = nativeRegisterNatives(className);

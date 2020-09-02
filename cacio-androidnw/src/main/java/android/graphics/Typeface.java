@@ -373,11 +373,25 @@ public class Typeface {
         result = 31 * result + mStyle;
         return result;
     }
-
-    private static native long nativeCreateFromTypeface(long native_instance, int style);
+	private static native long nativeCreateFromTypeface(long native_instance, int style);
+    private static native long nativeCreateFromTypefaceWithExactStyle(
+		long native_instance, int weight, boolean italic);
+    // TODO: clean up: change List<FontVariationAxis> to FontVariationAxis[]
+    // private static native long nativeCreateFromTypefaceWithVariation(long native_instance, List<FontVariationAxis> axes);
+    // @UnsupportedAppUsage
     private static native long nativeCreateWeightAlias(long native_instance, int weight);
+    // @UnsupportedAppUsage
+    private static native long nativeCreateFromArray(long[] familyArray, int weight, int italic);
+    private static native int[] nativeGetSupportedAxes(long native_instance);
+    // @CriticalNative
+    private static native void nativeSetDefault(long nativePtr);
+    // @CriticalNative
+    private static native int  nativeGetStyle(long nativePtr);
+    // @CriticalNative
+    private static native int  nativeGetWeight(long nativePtr);
+    // @CriticalNative
+    private static native long nativeGetReleaseFunc();
+    private static native void nativeRegisterGenericFamily(String str, long nativePtr);
     private static native void nativeUnref(long native_instance);
-    private static native int  nativeGetStyle(long native_instance);
     private static native long nativeCreateFromArray(long[] familyArray);
-    private static native void nativeSetDefault(long native_instance);
 }
