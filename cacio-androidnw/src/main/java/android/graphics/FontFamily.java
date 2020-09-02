@@ -15,6 +15,7 @@
  */
 
 package android.graphics;
+import android.content.res.*;
 
 // import android.content.res.AssetManager;
 
@@ -65,18 +66,16 @@ public class FontFamily {
     public boolean addFontWeightStyle(String path, int weight, boolean style) {
         return nAddFontWeightStyle(mNativePtr, path, weight, style);
     }
-/*
+
     public boolean addFontFromAsset(AssetManager mgr, String path) {
         return nAddFontFromAsset(mNativePtr, mgr, path);
     }
-*/
+
     private static native long nCreateFamily(String lang, int variant);
     private static native void nUnrefFamily(long nativePtr);
     private static native boolean nAddFont(long nativeFamily, String path);
     private static native boolean nAddFontWeightStyle(long nativeFamily, String path,
             int weight, boolean isItalic);
-/*
     private static native boolean nAddFontFromAsset(long nativeFamily, AssetManager mgr,
             String path);
-*/
 }
