@@ -16,7 +16,7 @@
 
 package android.graphics;
 
-// import android.util.Xml;
+import android.util.Xml;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -76,8 +76,8 @@ public class FontListParser {
     /* Parse fallback list (no names) */
     public static Config parse(InputStream in) throws XmlPullParserException, IOException {
         try {
-			if (true) throw new UnsupportedOperationException("TODO FIXME add android.util.Xml");
-            XmlPullParser parser = null; // Xml.newPullParser();
+			// if (true) throw new UnsupportedOperationException("TODO FIXME add android.util.Xml");
+            XmlPullParser parser = Xml.newPullParser();
             parser.setInput(in, null);
             parser.nextTag();
             return readFamilies(parser);
