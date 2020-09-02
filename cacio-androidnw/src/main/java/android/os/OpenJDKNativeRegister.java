@@ -137,7 +137,7 @@ public class OpenJDKNativeRegister
 // 0007f4cc T 
 			"_ZN7android26register_android_nio_utilsEP7_JNIEnv",
 // 0007d08c T 
-			"_ZN7android26register_android_os_ParcelEP7_JNIEnv",
+			// "_ZN7android26register_android_os_ParcelEP7_JNIEnv",
 // 0007d41c T 
 			"_ZN7android27register_android_os_SELinuxEP7_JNIEnv",
 // 00071654 T 
