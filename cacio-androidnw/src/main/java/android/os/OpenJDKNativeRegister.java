@@ -20,6 +20,16 @@ public class OpenJDKNativeRegister
 		}
 
 		nativeClassArr = new String[]{
+// 001e9e14 T
+			"_ZN3art30register_dalvik_system_DexFileEP7_JNIEnv",
+// 001ed65c T
+			"_ZN3art30register_dalvik_system_VMDebugEP7_JNIEnv",
+// 001f3360 T
+			"_ZN3art30register_dalvik_system_VMStackEP7_JNIEnv",
+// 001f01dc T
+			"_ZN3art32register_dalvik_system_VMRuntimeEP7_JNIEnv",
+// 001f40c4 T
+			"_ZN3art34register_dalvik_system_ZygoteHooksEP7_JNIEnv",
 // 00082414 T 
 			"_Z26register_android_os_BinderP7_JNIEnv",
 // 00084908 T 
@@ -305,8 +315,8 @@ public class OpenJDKNativeRegister
 		// Find class or ignore if ClassNotFoundException
 		int indexRegister = className.indexOf("register_");
 		int indexP7Env = className.indexOf("P7_JNIEnv");
-		boolean isInAndroidNamespace = className.startsWith("_ZN7android") && className.endsWith("EP7_JNIEnv");
-		String classStr = className.substring(indexRegister + 9, indexP7Env - (isInAndroidNamespace ? 1 : 0)).replace('_', '.');
+		boolean isInNamespace = (className.startsWith("_ZN3art") || className.startsWith("_ZN7android")) && className.endsWith("EP7_JNIEnv");
+		String classStr = className.substring(indexRegister + 9, indexP7Env - (isInNamespace ? 1 : 0)).replace('_', '.');
 		try {
 			Class.forName(classStr);
 		} catch (ClassNotFoundException ex) {

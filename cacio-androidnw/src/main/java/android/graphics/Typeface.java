@@ -318,8 +318,6 @@ public class Typeface {
     }
 
     static {
-		android.os.OpenJDKNativeRegister.tryRegisterNatives("_Z34register_android_graphics_TypefaceP7_JNIEnv");
-		
         init();
         // Set up defaults and typefaces exposed in public API
         DEFAULT         = create((String) null, 0);
