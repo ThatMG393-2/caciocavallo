@@ -36,8 +36,8 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 							Thread.sleep(16);
 						}
 					} catch (Throwable th) {
-						System.err.println(Log.getStackTraceString(th));
-						Log.e("AndroidAWTRender", "Thread stopped due to an error", th);
+						System.err.println("AWTAndroid Thread stopped due to an error");
+						th.printStackTrace();
 					}
 				}
 			}, "AWTAndroidRender").start();
