@@ -1,10 +1,5 @@
 package net.java.openjdk.cacio.ctc;
 
-import android.graphics.*;
-import android.os.OpenJDKNativeRegister;
-import android.util.Log;
-import android.view.Surface;
-
 import java.io.File;
 
 import java.awt.*;
