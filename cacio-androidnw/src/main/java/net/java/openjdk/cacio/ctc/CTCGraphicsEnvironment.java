@@ -10,7 +10,7 @@ import sun.java2d.SurfaceManagerFactory;
 
 public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 	static {
-		OpenJDKNativeRegister.registerNatives();
+		// OpenJDKNativeRegister.registerNatives();
 		
 		// FIXME a better way to get window graphics output
 		new Thread(new Runnable(){
