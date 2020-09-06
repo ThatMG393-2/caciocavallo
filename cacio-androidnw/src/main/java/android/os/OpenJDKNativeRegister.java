@@ -12,7 +12,7 @@ public class OpenJDKNativeRegister
 		File currLibFile;
 		for (String ldLib : System.getenv("LD_LIBRARY_PATH").split(":")) {
 			if (ldLib.isEmpty()) continue;
-			currLibFile = new File(ldLib, "libbinexecutor.so");
+			currLibFile = new File(ldLib, "libpojavexec.so");
 			if (currLibFile.exists()) {
 				System.load(currLibFile.getAbsolutePath());
 				break;
