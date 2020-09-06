@@ -27,7 +27,7 @@ public class OpenJDKNativeRegister
 // 0008d950 T 
 			"_ZN7android30register_android_graphics_PathEP7_JNIEnv",
 // 00071654 T 
-			"_ZN7android29register_android_view_SurfaceEP7_JNIEnv",
+			// "_ZN7android29register_android_view_SurfaceEP7_JNIEnv",
 			
 /*
 // 00082414 T 

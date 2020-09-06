@@ -12,9 +12,12 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.util.List;
 
+import javax.imageio.ImageIO;
+
 import sun.awt.peer.cacio.WindowClippedGraphics;
 import sun.awt.peer.cacio.managed.FullScreenWindowFactory;
 import sun.awt.peer.cacio.managed.PlatformScreen;
+import java.io.*;
 
 
 public class CTCScreen implements PlatformScreen {
@@ -33,6 +36,23 @@ public class CTCScreen implements PlatformScreen {
     private CTCScreen() {
         Dimension d = FullScreenWindowFactory.getScreenDimension();
         screenBuffer = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_ARGB);
+		
+		new Thread(new Runnable(){
+
+				@Override
+				public void run() {
+					try {
+						FileOutputStream fos = new FileOutputStream("/sdcard/games/.minecraft/awtfb.png");
+						while (true) {
+							Thread.sleep(16);
+							
+							ImageIO.write(screenBuffer, "png", fos);
+						}
+					} catch (Throwable th) {
+						throw new RuntimeException(th);
+					}
+				}
+			}, "AWTFB").start();
     }
 
     @Override
