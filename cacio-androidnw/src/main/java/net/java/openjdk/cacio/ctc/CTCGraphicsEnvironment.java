@@ -2,6 +2,8 @@ package net.java.openjdk.cacio.ctc;
 
 import java.io.File;
 
+import java.lang.reflect.*;
+
 import java.awt.*;
 import java.awt.image.*;
 
@@ -13,11 +15,32 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 		android.os.OpenJDKNativeRegister.registerNatives();
 		
 		try {
-			// Make it init headless mode first
+			/*
+			 * Make AWT use Caciocavallo and not load libawt_xawt.so
+			 * to prevent linking X11 libraries.
+			 */
+			 
+			// Initialize headless mode first
 			Class.forName("java.awt.Toolkit");
 
+			// Set false it...
 			System.setProperty("java.awt.headless", "false");
-		} catch (ClassNotFoundException e) {}
+			
+			// Set false to GraphicsEvnironment saved isHeadless
+			Field headlessField = GraphicsEnvironment.class.getDeclaredField("headless");
+			headlessField.setAccessible(true);
+			headlessField.set(null, Boolean.FALSE);
+			
+			Field defaultHeadlessField = GraphicsEnvironment.class.getDeclaredField("defaultHeadless");
+			defaultHeadlessField.setAccessible(true);
+			defaultHeadlessField.set(null, Boolean.FALSE);
+			
+			// System.setProperty("awt.toolkit", "net.java.openjdk.cacio.ctc.CTCToolkit");
+			// System.setProperty("java.awt.graphicsenv", "net.java.openjdk.cacio.ctc.CTCGraphicsEnvironment");
+		} catch (Throwable th) {
+			System.err.println("Unable to unheadless:");
+			th.printStackTrace();
+		}
 	}
 	
     public CTCGraphicsEnvironment() {
