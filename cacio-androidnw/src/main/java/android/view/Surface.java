@@ -326,6 +326,7 @@ public class Surface implements Parcelable {
      * in to it.
      * @hide
      */
+/*
     public void copyFrom(SurfaceControl other) {
         if (other == null) {
             throw new IllegalArgumentException("other must not be null");
@@ -345,6 +346,7 @@ public class Surface implements Parcelable {
             setNativeObjectLocked(newNativeObject);
         }
     }
+*/
 
     /**
      * This is intended to be used by {@link SurfaceView#updateWindow} only.

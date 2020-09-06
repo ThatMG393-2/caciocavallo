@@ -40,6 +40,7 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
     }
 	
 	// Headless override
+/*
 	@Override
 	public boolean isHeadlessInstance() {
         return false;
@@ -49,4 +50,5 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 	public static boolean isHeadless() {
 		return false;
 	}
+*/
 }
