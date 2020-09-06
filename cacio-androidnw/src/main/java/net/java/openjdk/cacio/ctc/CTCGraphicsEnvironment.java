@@ -16,7 +16,7 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 			// Make it init headless mode first
 			Class.forName("java.awt.Toolkit");
 
-			System.setProperty("awt.headless", "false");
+			System.setProperty("java.awt.headless", "false");
 		} catch (ClassNotFoundException e) {}
 	}
 	
