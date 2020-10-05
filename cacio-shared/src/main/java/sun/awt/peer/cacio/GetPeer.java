@@ -1,5 +1,6 @@
 package sun.awt.peer.cacio;
 
+import java.awt.*;
 import java.awt.peer.*;
 import sun.awt.AWTAccessor;
 
