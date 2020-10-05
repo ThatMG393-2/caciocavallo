@@ -114,7 +114,7 @@ class CacioKeyboardFocusManagerPeer implements KeyboardFocusManagerPeer {
             lightweightChild = target;
         }
         Component currentOwner = getCurrentFocusOwner();
-        if (currentOwner != null && currentOwner.getPeer() == null) {
+        if (currentOwner != null && !currentOwner.isDisplayable() /* currentOwner.getPeer() == null */) {
             currentOwner = null;
         }
         FocusEvent fg = new CausedFocusEvent(lightweightChild, FocusEvent.FOCUS_GAINED, false, currentOwner, cause);

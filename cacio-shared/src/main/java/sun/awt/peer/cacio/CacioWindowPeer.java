@@ -101,7 +101,7 @@ class CacioWindowPeer extends CacioContainerPeer<Window, JRootPane>
 
             CacioComponentPeer parentPeer = null;
 
-            ComponentPeer parentComponentPeer = parentComp.getPeer();
+            ComponentPeer parentComponentPeer = GetPeer.getComponent(parentComp);
             if (parentComponentPeer instanceof CacioComponentPeer) {
                 parentPeer = (CacioComponentPeer) parentComponentPeer;
 
@@ -179,7 +179,7 @@ class CacioWindowPeer extends CacioContainerPeer<Window, JRootPane>
         }
 
         if (blocker != null) {
-            CacioWindowPeer dialogPeer = (CacioDialogPeer)AWTAccessor.getComponentAccessor().getPeer(blocker);
+            CacioWindowPeer dialogPeer = (CacioDialogPeer) GetPeer.getComponent(blocker);
             if (dialogPeer != null) {
               dialogPeer.setModalBlocked(null, !blocked);
             }

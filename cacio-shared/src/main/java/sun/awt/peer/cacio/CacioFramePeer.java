@@ -61,10 +61,10 @@ class CacioFramePeer extends CacioWindowPeer implements FramePeer {
 
     public void setMenuBar(MenuBar mb) {
 
-        MenuBarPeer mbp = (MenuBarPeer) mb.getPeer();
+        MenuBarPeer mbp = (MenuBarPeer) GetPeer.getMenuComponent(mb);
         if (mbp == null) {
             mb.addNotify();
-            mbp = (MenuBarPeer) mb.getPeer();
+            mbp = (MenuBarPeer) GetPeer.getMenuComponent(mb);
         }
         assert mbp instanceof CacioMenuBarPeer;
         JMenuBar jmb = ((CacioMenuBarPeer) mbp).getSwingMenu();
@@ -84,19 +84,19 @@ class CacioFramePeer extends CacioWindowPeer implements FramePeer {
         
     }
 
+    private Rectangle mBoundsPrivate;
     public Rectangle getBoundsPrivate() {
-
         // TODO: Implement this correctly.
-        System.out.println("IMPLEMENT ME: CacioFramePeer.getBoundsPrivate");
-        return null;
-
+        // System.out.println("IMPLEMENT ME: CacioFramePeer.getBoundsPrivate");
+        
+        return mBoundsPrivate;
     }
 
     public void setBoundsPrivate(int x, int y, int width, int height) {
-
         // TODO: Implement this correctly.
-        System.out.println("IMPLEMENT ME: CacioFramePeer.setBoundsPrivate");
+        // System.out.println("IMPLEMENT ME: CacioFramePeer.setBoundsPrivate");
 
+        mBoundsPrivate = new Rectangle(x, y, width, height);
     }
 
     @Override

@@ -106,7 +106,7 @@ class CacioScrollPanePeer extends CacioContainerPeer<ScrollPane, JPanel>
 
         if (sp.getComponentCount() > 0) {
             Component view = sp.getComponent(0);
-            ComponentPeer peer = AWTAccessor.getComponentAccessor().getPeer(view);
+            ComponentPeer peer = GetPeer.getComponent(view);
             if (peer instanceof CacioComponentPeer) {
                 CacioComponentPeer ccp = (CacioComponentPeer) peer;
                 ccp.setViewport(viewX, viewY, viewWidth, viewHeight);

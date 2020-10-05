@@ -85,10 +85,10 @@ class CacioMenuBarPeer extends CacioMenuComponentPeer<MenuBar,JMenuBar>
     }
 
     private JMenu getSwingMenu(Menu m) {
-        MenuPeer mp = (MenuPeer) m.getPeer();
+        MenuPeer mp = (MenuPeer) GetPeer.getMenuComponent(m);
         if (mp == null) {
             m.addNotify();
-            mp = (MenuPeer) m.getPeer();
+            mp = (MenuPeer) GetPeer.getMenuComponent(m);
         }
         assert mp instanceof CacioMenuPeer;
         return (JMenu) ((CacioMenuPeer) mp).getSwingMenu();

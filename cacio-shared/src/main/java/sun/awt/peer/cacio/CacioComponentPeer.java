@@ -176,7 +176,7 @@ class CacioComponentPeer<AWTComponentType extends Component,
                 parentComp = parentComp.getParent();
             } else {
                 CacioComponentPeer parentPeer =
-                    (CacioComponentPeer) parentComp.getPeer();
+                    (CacioComponentPeer) GetPeer.getComponent(parentComp);
                 parent = parentPeer.platformWindow;
             }
         }
@@ -640,7 +640,7 @@ class CacioComponentPeer<AWTComponentType extends Component,
         if (parentsEnabled) {
             Container parent = c.getParent();
             if (parent != null) {
-                ComponentPeer peer = parent.getPeer();
+                ComponentPeer peer = GetPeer.getComponent(parent);
                 if (peer instanceof CacioComponentPeer) {
                     parentsEnabled =
                             ((CacioComponentPeer) peer).isParentsEnabled();
