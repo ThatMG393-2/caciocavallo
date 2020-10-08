@@ -15,19 +15,26 @@ public class FCMInternalWrapper {
     }
 
     public static void populateFontConfig(FontConfigManager instance, FcCompFont[] arr) {
-        invokeMethod(instance, "populateFontConfig", arr);
+        invokeMethod(instance, "populateFontConfig", FcCompFont[].class, arr);
     }
     
-    private static Object invokeMethod(FontConfigManager instance, String method, Object... objs) {
+    private static Object invokeMethod(FontConfigManager instance, String method) {
+        return invokeMethod(instance, method, null);
+    }
+    
+    private static Object invokeMethod(FontConfigManager instance, String method, Class[] clsArr, Object[] ...) {
         try {
-            Class[] clsArr = new Class[objs.length];
-            for (int i = 0; i < objs.length; i++) {
-                clsArr[i] = objs[i].getClass();
+            Method m;
+            if (clsArr == null) {
+                m = instance.getClass().getDeclaredMethod(method);
+                m.setAccessible(true);
+                return m.invoke(instance);
+            } else {
+                m = instance.getClass().getDeclaredMethod(method, clsArr);
+                m.setAccessible(true);
+                return m.invoke(instance, objs);
             }
-
-            Method m = instance.getClass().getDeclaredMethod(method, clsArr);
-            m.setAccessible(true);
-            return m.invoke(objs);
+            
         } catch (Throwable th) {
             throw new RuntimeException(th);
         }
