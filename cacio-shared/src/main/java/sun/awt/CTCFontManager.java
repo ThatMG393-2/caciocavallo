@@ -23,10 +23,10 @@
  * questions.
  */
 
-package sun.awt.android;
+package sun.awt;
 
 import sun.awt.*;
-import sun.font.android.CTCFontConfiguration;
+import sun.font.CTCFontConfiguration;
 import sun.font.FontConfigManager;
 import sun.font.SunFontManager;
 
