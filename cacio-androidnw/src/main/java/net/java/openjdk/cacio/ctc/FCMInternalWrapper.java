@@ -1,5 +1,7 @@
 package net.java.openjdk.cacio.ctc;
 
+import java.lang.reflect.*;
+
 import sun.font.*;
 import sun.font.FontConfigManager.*;
 
@@ -20,7 +22,7 @@ public class FCMInternalWrapper {
         try {
             Class[] clsArr = new Class[objs.length];
             for (int i = 0; i < objs.length; i++) {
-                clsArr = objs[i].getClass();
+                clsArr[i] = objs[i].getClass();
             }
 
             Method m = instance.getClass().getDeclaredMethod(method, clsArr);
