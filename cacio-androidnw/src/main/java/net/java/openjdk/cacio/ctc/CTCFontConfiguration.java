@@ -51,7 +51,7 @@ import sun.font.FontConfigManager.FcCompFont;
 import sun.font.FontConfigManager.FontConfigFont;
 import sun.font.*;
 import sun.java2d.SunGraphicsEnvironment;
-import java.util.logging.PlatformLogger;
+// import java.util.logging.PlatformLogger;
 
 public class CTCFontConfiguration extends FontConfiguration {
 
@@ -122,8 +122,10 @@ public class CTCFontConfiguration extends FontConfiguration {
             // font.compFont = ...; 
             fcCompFonts = new FcCompFont[]{font};
             
+            FCMInternalWrapper.populateFontConfig(fcm, fcCompFonts);
+            
             /*
-            fcCompFonts = fcm.loadFontConfig();
+             fcCompFonts = FCMInternalWrapper.loadFontConfig(fcm);
             if (fcCompFonts != null) {
                 try {
                     writeFcInfo();
@@ -137,7 +139,7 @@ public class CTCFontConfiguration extends FontConfiguration {
             }
             */
         } else {
-            fcm.populateFontConfig(fcCompFonts);
+            FCMInternalWrapper.populateFontConfig(fcm, fcCompFonts);
         }
 
         if (fcCompFonts == null) {
@@ -225,7 +227,7 @@ public class CTCFontConfiguration extends FontConfiguration {
         HashSet<String> nameSet = new HashSet<String>();
         CTCFontManager fm = (CTCFontManager) fontManager;
         FontConfigManager fcm = fm.getFontConfigManager();
-        FcCompFont[] fcCompFonts = fcm.loadFontConfig();
+        FcCompFont[] fcCompFonts = FCMInternalWrapper.loadFontConfig(fcm);
         for (int i=0; i<fcCompFonts.length; i++) {
             for (int j=0; j<fcCompFonts[i].allFonts.length; j++) {
                 nameSet.add(fcCompFonts[i].allFonts[j].fontFile);
@@ -266,7 +268,7 @@ public class CTCFontConfiguration extends FontConfiguration {
 
         CTCFontManager fm = (CTCFontManager) fontManager;
         FontConfigManager fcm = fm.getFontConfigManager();
-        FcCompFont[] fcCompFonts = fcm.loadFontConfig();
+        FcCompFont[] fcCompFonts = FCMInternalWrapper.loadFontConfig(fcm);
 
         CompositeFontDescriptor[] result =
             new CompositeFontDescriptor[NUM_FONTS * NUM_STYLES];
@@ -399,7 +401,7 @@ public class CTCFontConfiguration extends FontConfiguration {
         props.setProperty("version", fileVersion);
         CTCFontManager fm = (CTCFontManager) fontManager;
         FontConfigManager fcm = fm.getFontConfigManager();
-        FontConfigInfo fcInfo = fcm.getFontConfigInfo();
+        FontConfigInfo fcInfo = FCMInternalWrapper.getFontConfigInfo(fcm);
         props.setProperty("fcversion", Integer.toString(fcInfo.fcVersion));
         if (fcInfo.cacheDirs != null) {
             for (int i=0;i<fcInfo.cacheDirs.length;i++) {
@@ -555,7 +557,8 @@ public class CTCFontConfiguration extends FontConfiguration {
     }
 
     private static void warning(String msg) {
-        PlatformLogger logger = PlatformLogger.getLogger("sun.awt.FontConfiguration");
-        logger.warning(msg);
+        // PlatformLogger logger = PlatformLogger.getLogger("sun.awt.FontConfiguration");
+        // logger.warning(msg);
+        System.err.println("CTCFontConfiguration warning: " + msg);
     }
 }
