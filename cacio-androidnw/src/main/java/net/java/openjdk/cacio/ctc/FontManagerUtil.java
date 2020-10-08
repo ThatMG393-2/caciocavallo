@@ -26,6 +26,11 @@ class FontManagerUtil {
                         Field fmInstanceField = FontManagerFactory.class.getDeclaredField("instance");
                         fmInstanceField.setAccessible(true);
                         fmInstanceField.set(null, instance);
+                        
+                        String currName = FontManagerFactory.getInstance().getClass().getName();
+                        if (!currName.equals(fmClassName)) {
+                            System.err.println("Could not change font manager to " + fmClassName + ", current was " + currName);
+                        }
                     } catch (ReflectiveOperationException ex) {
                         throw new InternalError(ex);
                     }
