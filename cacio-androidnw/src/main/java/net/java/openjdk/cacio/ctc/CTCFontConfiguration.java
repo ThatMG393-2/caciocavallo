@@ -42,13 +42,16 @@ import java.util.Scanner;
 import sun.awt.FontConfiguration;
 import sun.awt.FontDescriptor;
 import sun.awt.SunToolkit;
+/*
 import sun.font.CompositeFontDescriptor;
 import sun.font.FontManager;
+*/
 import sun.font.FontConfigManager.FontConfigInfo;
 import sun.font.FontConfigManager.FcCompFont;
 import sun.font.FontConfigManager.FontConfigFont;
+import sun.font.*;
 import sun.java2d.SunGraphicsEnvironment;
-import sun.util.logging.PlatformLogger;
+import java.util.logging.PlatformLogger;
 
 public class CTCFontConfiguration extends FontConfiguration {
 

@@ -25,6 +25,7 @@
 
 package net.java.openjdk.cacio.ctc;
 
+import sun.awt.*;
 import sun.font.FontConfigManager;
 import sun.font.SunFontManager;
 
