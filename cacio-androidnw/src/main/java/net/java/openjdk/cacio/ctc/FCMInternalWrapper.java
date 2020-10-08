@@ -22,7 +22,7 @@ public class FCMInternalWrapper {
         return invokeMethod(instance, method, null);
     }
     
-    private static Object invokeMethod(FontConfigManager instance, String method, Class[] clsArr, Object[] ...) {
+    private static Object invokeMethod(FontConfigManager instance, String method, Class[] clsArr, Object[] objs...) {
         try {
             Method m;
             if (clsArr == null) {
