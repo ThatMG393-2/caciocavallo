@@ -15,6 +15,8 @@ import sun.java2d.SurfaceManagerFactory;
 
 public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
     static {
+        System.setProperty("sun.font.fontmanager", "sun.font.CTCFontManager");
+        
         android.os.OpenJDKNativeRegister.registerNatives();
     
         try {
