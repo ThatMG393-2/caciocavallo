@@ -15,7 +15,7 @@ public class FCMInternalWrapper {
     }
 
     public static void populateFontConfig(FontConfigManager instance, FcCompFont[] arr) {
-        invokeMethod(instance, "populateFontConfig", FcCompFont[].class, arr);
+        invokeMethod(instance, "populateFontConfig", new Class[]{FcCompFont[].class}, arr);
     }
     
     private static Object invokeMethod(FontConfigManager instance, String method) {
