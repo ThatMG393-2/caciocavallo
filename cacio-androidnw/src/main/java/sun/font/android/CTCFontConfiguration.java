@@ -23,7 +23,7 @@
  * questions.
  */
 
-package sun.awt.android;
+package sun.font.android;
 
 import java.awt.Font;
 import java.io.File;
@@ -39,6 +39,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Scanner;
+import sun.awt.android.CTCFontManager;
 import sun.awt.FontConfiguration;
 import sun.awt.FontDescriptor;
 import sun.awt.SunToolkit;

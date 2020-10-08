@@ -26,6 +26,7 @@
 package sun.awt.android;
 
 import sun.awt.*;
+import sun.font.android.CTCFontConfiguration;
 import sun.font.FontConfigManager;
 import sun.font.SunFontManager;
 
