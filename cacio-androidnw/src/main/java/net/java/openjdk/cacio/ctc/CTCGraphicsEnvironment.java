@@ -41,7 +41,9 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
         font.firstFont = fcFont[0];
         // font.compFont = ...; 
         FontConfigManager.FcCompFont[] fontArr = new FcCompFont[]{font};
-        FontConfigManager.populateFontConfig(fontArr);
+        Method fcmPopulateMethod = FontConfigManager.class.getDeclaredMethod("populateFontConfig", FcCompFont[].class);
+        fcmPopulateMethod.setAccessible(true);
+        fcmPopulateMethod.invoke(null, fontArr);
         
         try {
             /*
