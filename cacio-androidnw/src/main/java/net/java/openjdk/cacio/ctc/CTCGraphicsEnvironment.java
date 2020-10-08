@@ -16,37 +16,13 @@ import sun.java2d.SurfaceManagerFactory;
 public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
     static {
         android.os.OpenJDKNativeRegister.registerNatives();
-
-        // Android: add a dummy font list
-        FontConfigFont[] fcFont = new FontConfigFont[2];
-
-        fcFont[0] = new FontConfigFont();
-        fcFont[0].familyName = "Android Roboto Sans";
-        fcFont[0].styleStr = "Regular";
-        fcFont[0].fullName = "Android Roboto Sans Regular";
-        fcFont[0].fontFile = "/system/fonts/DroidSans.ttf";
-
-        fcFont[1] = new FontConfigFont();
-        fcFont[1].familyName = "Android Roboto Sans";
-        fcFont[1].styleStr = "Bold";
-        fcFont[1].fullName = "Android Roboto Sans Bold";
-        fcFont[1].fontFile = "/system/fonts/DroidSans-Bold.ttf";
-
-        FcCompFont font = new FcCompFont();
-        font.fcName = "sans"; //monospace
-        font.fcFamily = "sans"; // eg sans
-        font.jdkName = "sansserif"; // eg sansserif
-        font.style = 0; // eg 0=PLAIN
-        font.allFonts = fcFont;
-        font.firstFont = fcFont[0];
-        // font.compFont = ...; 
-        FontConfigManager.FcCompFont[] fontArr = new FcCompFont[]{font};
-        
+    
         try {
+            /*
             Method fcmPopulateMethod = FontConfigManager.class.getDeclaredMethod("populateFontConfig", FcCompFont[].class);
             fcmPopulateMethod.setAccessible(true);
             fcmPopulateMethod.invoke(null, fontArr);
-            
+            */
             
             /*
              * Make AWT use Caciocavallo and not load libawt_xawt.so
