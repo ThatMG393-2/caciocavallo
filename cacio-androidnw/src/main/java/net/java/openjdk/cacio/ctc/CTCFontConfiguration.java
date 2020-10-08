@@ -50,7 +50,7 @@ import sun.font.FontConfigManager.FontConfigFont;
 import sun.java2d.SunGraphicsEnvironment;
 import sun.util.logging.PlatformLogger;
 
-public class FcFontConfiguration extends FontConfiguration {
+public class CTCFontConfiguration extends FontConfiguration {
 
     /** Version of the cache file format understood by this code.
      * Its part of the file name so that we can rev this at
@@ -70,13 +70,13 @@ public class FcFontConfiguration extends FontConfiguration {
 
     private FcCompFont[] fcCompFonts = null;
 
-    public FcFontConfiguration(SunFontManager fm) {
+    public CTCFontConfiguration(SunFontManager fm) {
         super(fm);
         init();
     }
 
     /* This isn't called but is needed to satisfy super-class contract. */
-    public FcFontConfiguration(SunFontManager fm,
+    public CTCFontConfiguration(SunFontManager fm,
                                boolean preferLocaleFonts,
                                boolean preferPropFonts) {
         super(fm, preferLocaleFonts, preferPropFonts);

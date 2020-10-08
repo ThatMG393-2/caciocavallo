@@ -6,10 +6,10 @@ import java.lang.reflect.*;
 
 import java.awt.*;
 import java.awt.image.*;
-
+/*
 import sun.font.FontConfigManager;
 import static sun.font.FontConfigManager.*;
-
+*/
 import sun.java2d.SunGraphicsEnvironment;
 import sun.java2d.SurfaceManagerFactory;
 
