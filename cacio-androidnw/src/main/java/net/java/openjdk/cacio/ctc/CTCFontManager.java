@@ -97,7 +97,9 @@ public class CTCFontManager extends SunFontManager {
         return info;
     }
 
-    native String getFontPathNative(boolean noType1Fonts, boolean isX11GE);
+    /* native */ String getFontPathNative(boolean noType1Fonts, boolean isX11GE) {
+        return "/system/fonts"
+    }
 
     protected synchronized String getFontPath(boolean noType1Fonts) {
         return getFontPathNative(noType1Fonts, false);
