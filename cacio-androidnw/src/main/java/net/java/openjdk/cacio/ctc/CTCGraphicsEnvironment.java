@@ -41,11 +41,13 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
         font.firstFont = fcFont[0];
         // font.compFont = ...; 
         FontConfigManager.FcCompFont[] fontArr = new FcCompFont[]{font};
-        Method fcmPopulateMethod = FontConfigManager.class.getDeclaredMethod("populateFontConfig", FcCompFont[].class);
-        fcmPopulateMethod.setAccessible(true);
-        fcmPopulateMethod.invoke(null, fontArr);
         
         try {
+            Method fcmPopulateMethod = FontConfigManager.class.getDeclaredMethod("populateFontConfig", FcCompFont[].class);
+            fcmPopulateMethod.setAccessible(true);
+            fcmPopulateMethod.invoke(null, fontArr);
+            
+            
             /*
              * Make AWT use Caciocavallo and not load libawt_xawt.so
              * to prevent linking X11 libraries.
@@ -69,7 +71,7 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
             // System.setProperty("awt.toolkit", "net.java.openjdk.cacio.ctc.CTCToolkit");
             // System.setProperty("java.awt.graphicsenv", "net.java.openjdk.cacio.ctc.CTCGraphicsEnvironment");
         } catch (Throwable th) {
-            System.err.println("Unable to unheadless:");
+            // System.err.println("Unable to unheadless:");
             th.printStackTrace();
         }
     }
