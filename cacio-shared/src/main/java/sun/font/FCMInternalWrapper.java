@@ -11,7 +11,7 @@ public class FCMInternalWrapper {
         return instance.loadFontConfig();
     }
     
-    public void populateFontConfig(FontConfigManager instance, FcCompFont[] arr) {
+    public static void populateFontConfig(FontConfigManager instance, FcCompFont[] arr) {
         instance.populateFontConfig(arr);
     }
 }
