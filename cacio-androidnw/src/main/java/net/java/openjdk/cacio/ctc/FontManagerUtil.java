@@ -23,7 +23,7 @@ class FontManagerUtil {
                         Class<?> fmClass = Class.forName(fmClassName, true, cl);
                         FontManager instance = (FontManager) fmClass.getDeclaredConstructor().newInstance();
                         
-                        Field fmInstanceField = FontManagerFactory.class.getDeclaredMethod("instance");
+                        Field fmInstanceField = FontManagerFactory.class.getDeclaredField("instance");
                         fmInstanceField.setAccessible(true);
                         fmInstanceField.set(null, instance);
                     } catch (ReflectiveOperationException ex) {
