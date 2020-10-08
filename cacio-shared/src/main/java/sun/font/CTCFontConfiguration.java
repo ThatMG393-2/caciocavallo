@@ -52,7 +52,7 @@ import sun.font.FontConfigManager.FcCompFont;
 import sun.font.FontConfigManager.FontConfigFont;
 import sun.font.*;
 import sun.java2d.SunGraphicsEnvironment;
-import java.util.logging.PlatformLogger;
+// import sun.util.logging.PlatformLogger;
 
 public class CTCFontConfiguration extends FontConfiguration {
 
@@ -556,7 +556,11 @@ public class CTCFontConfiguration extends FontConfiguration {
     }
 
     private static void warning(String msg) {
+        /*
         PlatformLogger logger = PlatformLogger.getLogger("sun.awt.FontConfiguration");
         logger.warning(msg);
+        */
+        
+        System.err.println("Warning sun.awt.FontConfigurartion: " + msg);
     }
 }
