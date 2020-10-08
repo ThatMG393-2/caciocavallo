@@ -23,7 +23,7 @@
  * questions.
  */
 
-package net.java.openjdk.cacio.ctc;
+package sun.awt.android;
 
 import java.awt.Font;
 import java.io.File;
