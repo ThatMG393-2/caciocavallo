@@ -7,7 +7,7 @@ import java.awt.Toolkit;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 
-import sun.font.FontManagerFactory;
+import sun.font.*;
 
 class FontManagerUtil {
 
