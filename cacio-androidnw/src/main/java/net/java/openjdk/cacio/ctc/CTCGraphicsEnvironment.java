@@ -17,7 +17,8 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
     static {
         android.os.OpenJDKNativeRegister.registerNatives();
     
-        FontManagerUtil.setFontManager("net.java.openjdk.cacio.ctc.CTCFontManager");
+        // FontManagerUtil.setFontManager("net.java.openjdk.cacio.ctc.CTCFontManager");
+        FontManagerUtil.setFontScaler(System.getProperty("cacio.font.fontscaler", "sun.font.FreetypeFontScaler"));
         
         try {
             /*
