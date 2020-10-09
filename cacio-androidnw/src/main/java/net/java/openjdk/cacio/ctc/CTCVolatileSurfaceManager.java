@@ -9,7 +9,9 @@ class CTCVolatileSurfaceManager extends VolatileSurfaceManager {
     protected CTCVolatileSurfaceManager(SunVolatileImage vImg, Object context) {
         super(vImg, context);
     }
-
+    
+    // TODO uncomment if need
+/*
     @Override
     protected boolean isAccelerationEnabled() {
         return false;
@@ -19,5 +21,5 @@ class CTCVolatileSurfaceManager extends VolatileSurfaceManager {
     protected SurfaceData initAcceleratedSurface() {
         return null;
     }
-
+*/
 }
