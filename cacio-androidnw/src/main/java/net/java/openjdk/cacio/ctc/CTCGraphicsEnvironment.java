@@ -32,7 +32,7 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
              * to prevent linking X11 libraries.
              */
              
-            if (Boolean.getBoolean(System.getProperty("java.awt.headless", "true")) {
+            if (Boolean.getBoolean(System.getProperty("java.awt.headless", "true"))) {
                 // Initialize headless mode first
                 Class.forName("java.awt.Toolkit");
 
