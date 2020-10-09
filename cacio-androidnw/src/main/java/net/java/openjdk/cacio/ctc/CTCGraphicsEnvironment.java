@@ -23,9 +23,10 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
     
         // We should force set instead of use property, as property one get ignored
         FontManagerUtil.setFontManager("net.java.openjdk.cacio.ctc.CTCFontManager");
-        FontManagerUtil.setFontScaler(System.getProperty("cacio.font.fontscaler", "sun.font.FreetypeFontScaler"));
         
         try {
+            FontManagerUtil.setFontScaler(System.getProperty("cacio.font.fontscaler", "sun.font.FreetypeFontScaler"));
+            
             /*
              * Make AWT use Caciocavallo and not load libawt_xawt.so
              * to prevent linking X11 libraries.
