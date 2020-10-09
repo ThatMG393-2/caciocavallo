@@ -15,19 +15,17 @@ import sun.java2d.SurfaceManagerFactory;
 
 public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
     static {
-        android.os.OpenJDKNativeRegister.registerNatives();
+        try {
+            android.os.OpenJDKNativeRegister.registerNatives();
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     
         // We should force set instead of use property, as property one get ignored
         FontManagerUtil.setFontManager("net.java.openjdk.cacio.ctc.CTCFontManager");
         FontManagerUtil.setFontScaler(System.getProperty("cacio.font.fontscaler", "sun.font.FreetypeFontScaler"));
         
         try {
-            /*
-            Method fcmPopulateMethod = FontConfigManager.class.getDeclaredMethod("populateFontConfig", FcCompFont[].class);
-            fcmPopulateMethod.setAccessible(true);
-            fcmPopulateMethod.invoke(null, fontArr);
-            */
-            
             /*
              * Make AWT use Caciocavallo and not load libawt_xawt.so
              * to prevent linking X11 libraries.
