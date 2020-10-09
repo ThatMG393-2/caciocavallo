@@ -31,22 +31,24 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
              * Make AWT use Caciocavallo and not load libawt_xawt.so
              * to prevent linking X11 libraries.
              */
-            /*
-             // Initialize headless mode first
-             Class.forName("java.awt.Toolkit");
+             
+            if (Boolean.getBoolean(System.getProperty("java.awt.headless", "true")) {
+                // Initialize headless mode first
+                Class.forName("java.awt.Toolkit");
 
-             // Set false it...
-             System.setProperty("java.awt.headless", "false");
+                // Set false it...
+                System.setProperty("java.awt.headless", "false");
 
-             // Set false to GraphicsEvnironment saved isHeadless
-             Field headlessField = GraphicsEnvironment.class.getDeclaredField("headless");
-             headlessField.setAccessible(true);
-             headlessField.set(null, Boolean.FALSE);
+                // Set false to GraphicsEvnironment saved isHeadless
+                Field headlessField = GraphicsEnvironment.class.getDeclaredField("headless");
+                headlessField.setAccessible(true);
+                headlessField.set(null, Boolean.FALSE);
 
-             Field defaultHeadlessField = GraphicsEnvironment.class.getDeclaredField("defaultHeadless");
-             defaultHeadlessField.setAccessible(true);
-             defaultHeadlessField.set(null, Boolean.FALSE);
-             */
+                Field defaultHeadlessField = GraphicsEnvironment.class.getDeclaredField("defaultHeadless");
+                defaultHeadlessField.setAccessible(true);
+                defaultHeadlessField.set(null, Boolean.FALSE);
+            }
+            
             // System.setProperty("awt.toolkit", "net.java.openjdk.cacio.ctc.CTCToolkit");
             // System.setProperty("java.awt.graphicsenv", "net.java.openjdk.cacio.ctc.CTCGraphicsEnvironment");
         } catch (Throwable th) {
