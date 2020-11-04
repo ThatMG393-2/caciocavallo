@@ -18,18 +18,15 @@ class FontManagerUtil {
 
                 public Object run() {
                     try {
-                        /*
                         System.setProperty("sun.font.fontmanager", fmClassName);
                         ClassLoader cl = ClassLoader.getSystemClassLoader();
                         Class<?> fmClass = Class.forName(fmClassName, true, cl);
-                        */
-                        FontManager instance = new net.java.openjdk.cacio.ctc.CTCFontManager();
-                        // (FontManager) fmClass.getDeclaredConstructor().newInstance();
-
+                        FontManager instance = (FontManager) fmClass.getDeclaredConstructor().newInstance();
+                        
                         Field fmInstanceField = FontManagerFactory.class.getDeclaredField("instance");
                         fmInstanceField.setAccessible(true);
                         fmInstanceField.set(null, instance);
-
+                        
                         String currName = FontManagerFactory.getInstance().getClass().getName();
                         if (!currName.equals(fmClassName)) {
                             System.err.println("Could not change font manager to " + fmClassName + ", current was " + currName);
@@ -41,7 +38,7 @@ class FontManagerUtil {
                 }
             });
     }
-
+  
     static void setFontScaler(final String fsClassName) {
         AccessController.doPrivileged(new PrivilegedAction<Object>() {
 

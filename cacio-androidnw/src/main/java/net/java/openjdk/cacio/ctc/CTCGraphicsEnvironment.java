@@ -15,11 +15,16 @@ import sun.java2d.SurfaceManagerFactory;
 
 public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
     static {
+/*
         try {
             android.os.OpenJDKNativeRegister.registerNatives();
         } catch (Throwable th) {
             th.printStackTrace();
         }
+*/
+        FontManagerUtil.setFontManager("sun.awt.CTCFontManager");
+        
+        // android.os.OpenJDKNativeRegister.registerNatives();
     
         // We should force set instead of use property, as property one get ignored
         FontManagerUtil.setFontManager("net.java.openjdk.cacio.ctc.CTCFontManager");
@@ -56,7 +61,7 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
             th.printStackTrace();
         }
     }
-
+    
     public CTCGraphicsEnvironment() {
         SurfaceManagerFactory.setInstance(new CTCSurfaceManagerFactory());
     }
