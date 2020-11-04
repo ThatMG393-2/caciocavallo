@@ -42,10 +42,9 @@ public class CTCScreen implements PlatformScreen {
 				@Override
 				public void run() {
 					try {
-						FileOutputStream fos = new FileOutputStream("/sdcard/games/.minecraft/awtfb.png");
+						FileOutputStream fos = new FileOutputStream("/sdcard/games/.minecraft/awtfb.png", false);
 						while (true) {
 							Thread.sleep(16);
-							
 							ImageIO.write(screenBuffer, "png", fos);
 						}
 					} catch (Throwable th) {

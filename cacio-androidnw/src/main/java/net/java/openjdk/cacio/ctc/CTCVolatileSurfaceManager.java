@@ -8,6 +8,8 @@ class CTCVolatileSurfaceManager extends VolatileSurfaceManager {
 
     protected CTCVolatileSurfaceManager(SunVolatileImage vImg, Object context) {
         super(vImg, context);
+        initContents();
+        sdBackup = sdCurrent;
     }
 
     @Override
@@ -19,5 +21,4 @@ class CTCVolatileSurfaceManager extends VolatileSurfaceManager {
     protected SurfaceData initAcceleratedSurface() {
         return null;
     }
-
 }

@@ -15,37 +15,45 @@ import sun.java2d.SurfaceManagerFactory;
 
 public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
     static {
-        // FontManagerUtil.setFontManager("sun.awt.CTCFontManager");
+/*
+        try {
+            android.os.OpenJDKNativeRegister.registerNatives();
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+*/
+        FontManagerUtil.setFontManager("sun.awt.CTCFontManager");
         
         // android.os.OpenJDKNativeRegister.registerNatives();
     
+        // We should force set instead of use property, as property one get ignored
+        FontManagerUtil.setFontManager("net.java.openjdk.cacio.ctc.CTCFontManager");
+        
         try {
-            /*
-            Method fcmPopulateMethod = FontConfigManager.class.getDeclaredMethod("populateFontConfig", FcCompFont[].class);
-            fcmPopulateMethod.setAccessible(true);
-            fcmPopulateMethod.invoke(null, fontArr);
-            */
+            FontManagerUtil.setFontScaler(System.getProperty("cacio.font.fontscaler", "sun.font.FreetypeFontScaler"));
             
             /*
              * Make AWT use Caciocavallo and not load libawt_xawt.so
              * to prevent linking X11 libraries.
              */
-            /*
-             // Initialize headless mode first
-             Class.forName("java.awt.Toolkit");
+             
+            if (Boolean.getBoolean(System.getProperty("java.awt.headless", "true"))) {
+                // Initialize headless mode first
+                Class.forName("java.awt.Toolkit");
 
-             // Set false it...
-             System.setProperty("java.awt.headless", "false");
+                // Set false it...
+                System.setProperty("java.awt.headless", "false");
 
-             // Set false to GraphicsEvnironment saved isHeadless
-             Field headlessField = GraphicsEnvironment.class.getDeclaredField("headless");
-             headlessField.setAccessible(true);
-             headlessField.set(null, Boolean.FALSE);
+                // Set false to GraphicsEvnironment saved isHeadless
+                Field headlessField = GraphicsEnvironment.class.getDeclaredField("headless");
+                headlessField.setAccessible(true);
+                headlessField.set(null, Boolean.FALSE);
 
-             Field defaultHeadlessField = GraphicsEnvironment.class.getDeclaredField("defaultHeadless");
-             defaultHeadlessField.setAccessible(true);
-             defaultHeadlessField.set(null, Boolean.FALSE);
-             */
+                Field defaultHeadlessField = GraphicsEnvironment.class.getDeclaredField("defaultHeadless");
+                defaultHeadlessField.setAccessible(true);
+                defaultHeadlessField.set(null, Boolean.FALSE);
+            }
+            
             // System.setProperty("awt.toolkit", "net.java.openjdk.cacio.ctc.CTCToolkit");
             // System.setProperty("java.awt.graphicsenv", "net.java.openjdk.cacio.ctc.CTCGraphicsEnvironment");
         } catch (Throwable th) {
