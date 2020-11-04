@@ -22,7 +22,7 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
             th.printStackTrace();
         }
 */
-        FontManagerUtil.setFontManager("sun.awt.CTCFontManager");
+        FontManagerUtil.setFontManager("net.java.openjdk.cacio.ctc.CTCFontManager");
         
         // android.os.OpenJDKNativeRegister.registerNatives();
     
