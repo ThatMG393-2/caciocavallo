@@ -110,4 +110,9 @@ public class CTCScreen implements PlatformScreen {
                 null, 0, (int) FullScreenWindowFactory.getScreenDimension().getWidth());
         }
     }
+    
+    static {
+        // Load it to get JavaVM instance
+        System.loadLibrary("pojavexec");
+    }
 }
