@@ -19,7 +19,6 @@ import sun.awt.peer.cacio.managed.FullScreenWindowFactory;
 import sun.awt.peer.cacio.managed.PlatformScreen;
 import java.io.*;
 
-
 public class CTCScreen implements PlatformScreen {
 
     private BufferedImage screenBuffer;
@@ -36,7 +35,7 @@ public class CTCScreen implements PlatformScreen {
     private CTCScreen() {
         Dimension d = FullScreenWindowFactory.getScreenDimension();
         screenBuffer = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_ARGB);
-		
+		/*
 		new Thread(new Runnable(){
 
 				@Override
@@ -52,6 +51,7 @@ public class CTCScreen implements PlatformScreen {
 					}
 				}
 			}, "AWTFB").start();
+        */
     }
 
     @Override
@@ -89,4 +89,25 @@ public class CTCScreen implements PlatformScreen {
         return screenBuffer.getRGB(bounds.x, bounds.y, bounds.width, bounds.height, null, 0, bounds.width);
     }
 
+    // private static Canvas mAndroidCanvas = new Canvas(-1);
+    // private static int[] currentRgbArray;
+    public static int[] getCurrentScreenRGB(/* long nativeCanvas, int width, int height */) {
+      /*
+        if (instance.screenBuffer.getWidth() != width || instance.screenBuffer.getHeight() != height) {
+            
+        }
+      */
+        // mAndroidCanvas.updateCanvas(nativeCanvas);
+        // currentRgbArray = return instance.screenBuffer.getRGB(0, 0, width, height, null, 0, width);
+        // mAndroidCanvas.drawBitmap(currentRgbArray, 0, width, 0, 0, width, height, true, null);
+        
+        if (instance.screenBuffer == null) {
+            return null;
+        } else {
+            return instance.screenBuffer.getRGB(0, 0,
+                FullScreenWindowFactory.getScreenDimension().getWidth(),
+                FullScreenWindowFactory.getScreenDimension().getHeight(),
+                null, 0, FullScreenWindowFactory.getScreenDimension().getWidth());
+        }
+    }
 }

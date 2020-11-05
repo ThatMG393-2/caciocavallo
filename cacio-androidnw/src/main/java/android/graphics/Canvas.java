@@ -47,7 +47,7 @@ import java.lang.annotation.RetentionPolicy;
 public class Canvas {
 
     // assigned in constructors or setBitmap, freed in finalizer
-    private long mNativeCanvasWrapper;
+    public long mNativeCanvasWrapper;
 
     /** @hide */
     public long getNativeCanvasWrapper() {
@@ -160,12 +160,17 @@ public class Canvas {
 
     /** @hide */
     public Canvas(long nativeCanvas) {
+        mFinalizer = new CanvasFinalizer(nativeCanvas);
+        updateCanvas(nativeCanvas);
+        mDensity = Bitmap.getDefaultDensity();
+    }
+    
+    public void updateCanvas(long nativeCanvas) {
         if (nativeCanvas == 0) {
             throw new IllegalStateException();
         }
         mNativeCanvasWrapper = nativeCanvas;
-        mFinalizer = new CanvasFinalizer(mNativeCanvasWrapper);
-        mDensity = Bitmap.getDefaultDensity();
+        mFinalizer.mNativeCanvasWrapper = nativeCanvas;
     }
 
     /**
