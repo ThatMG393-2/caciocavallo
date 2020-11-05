@@ -91,7 +91,7 @@ public class CTCFontManager extends SunFontManager {
                 info[1] = fontConfigFonts[0].firstFont.fontFile;
             } else {
                 info[0] = "Dialog";
-                info[1] = "/dialog.ttf";
+                info[1] = "/system/fonts/DroidSans.ttf";
             }
         }
         return info;
@@ -104,5 +104,4 @@ public class CTCFontManager extends SunFontManager {
     protected synchronized String getFontPath(boolean noType1Fonts) {
         return getFontPathNative(noType1Fonts, false);
     }
-
 }

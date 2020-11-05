@@ -183,9 +183,14 @@ public class CTCFontConfiguration extends FontConfiguration {
 
     @Override
     public String getFileNameFromPlatformName(String platformName) {
-        /* Platform name is the file name, but rather than returning
-         * the arg, return null*/
-        return null;
+        /* If the FontConfig file doesn't use xlfds, or its
+         * FcFontConfiguration, this may be already a file name.
+         */
+        if (platName.startsWith("/")) {
+            return platName;
+        }
+        
+        return null; // new File(platformName).getName();
     }
 
     @Override
