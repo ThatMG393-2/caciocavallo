@@ -186,8 +186,8 @@ public class CTCFontConfiguration extends FontConfiguration {
         /* If the FontConfig file doesn't use xlfds, or its
          * FcFontConfiguration, this may be already a file name.
          */
-        if (platName.startsWith("/")) {
-            return platName;
+        if (platformName.startsWith("/")) {
+            return platformName;
         }
         
         return null; // new File(platformName).getName();
