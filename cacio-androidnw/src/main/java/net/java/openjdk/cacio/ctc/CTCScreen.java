@@ -105,8 +105,8 @@ public class CTCScreen implements PlatformScreen {
             return null;
         } else {
             return instance.screenBuffer.getRGB(0, 0,
-                FullScreenWindowFactory.getScreenDimension().getWidth(),
-                FullScreenWindowFactory.getScreenDimension().getHeight(),
+                (int) FullScreenWindowFactory.getScreenDimension().getWidth(),
+                (int) FullScreenWindowFactory.getScreenDimension().getHeight(),
                 null, 0, FullScreenWindowFactory.getScreenDimension().getWidth());
         }
     }
