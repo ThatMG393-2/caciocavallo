@@ -113,6 +113,16 @@ public class CTCScreen implements PlatformScreen {
     
     static {
         // Load it to get JavaVM instance
-        System.loadLibrary("pojavexec");
+        // System.loadLibrary("pojavexec");
+        
+        File currLibFile;
+        for (String ldLib : System.getenv("LD_LIBRARY_PATH").split(":")) {
+            if (ldLib.isEmpty()) continue;
+            currLibFile = new File(ldLib, "libpojavexec.so");
+            if (currLibFile.exists()) {
+                System.load(currLibFile.getAbsolutePath());
+                break;
+            }
+		}
     }
 }
