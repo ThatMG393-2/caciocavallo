@@ -162,8 +162,7 @@ public class CTCRobotPeer implements RobotPeer {
  
     @Override
     public int getRGBPixel(int x, int y) {
-        // TODO Auto-generated method stub
-        return 0;
+        return CTCScreen.getInstance().getRGBPixel(x, y);
     }
 
     @Override

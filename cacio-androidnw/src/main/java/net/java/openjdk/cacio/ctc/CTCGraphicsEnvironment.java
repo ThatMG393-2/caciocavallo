@@ -22,21 +22,25 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
             th.printStackTrace();
         }
 */
-        FontManagerUtil.setFontManager("net.java.openjdk.cacio.ctc.CTCFontManager");
-        
+
         // android.os.OpenJDKNativeRegister.registerNatives();
     
         // We should force set instead of use property, as property one get ignored
-        FontManagerUtil.setFontManager("net.java.openjdk.cacio.ctc.CTCFontManager");
+        String propertyFontManager = System.getProperty("sun.font.fontmanager");
+        if (propertyFontManager != null) {
+            FontManagerUtil.setFontManager(propertyFontManager);
+        }
         
         try {
-            FontManagerUtil.setFontScaler(System.getProperty("cacio.font.fontscaler", "sun.font.FreetypeFontScaler"));
+            String propertyFontScaler = System.getProperty("cacio.font.fontscaler");
+            if (propertyFontScaler != null) {
+                FontManagerUtil.setFontScaler(propertyFontScaler);
+            }
             
             /*
              * Make AWT use Caciocavallo and not load libawt_xawt.so
              * to prevent linking X11 libraries.
              */
-             
             if (Boolean.getBoolean(System.getProperty("java.awt.headless", "true"))) {
                 // Initialize headless mode first
                 Class.forName("java.awt.Toolkit");

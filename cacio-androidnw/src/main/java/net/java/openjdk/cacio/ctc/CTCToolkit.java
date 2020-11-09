@@ -152,8 +152,7 @@ public class CTCToolkit extends CacioToolkit {
 
     @Override
     public void beep() {
-        // TODO Auto-generated method stub
-
+       // logger.log(Level.FINE, "BEEP");
     }
 
     @Override
@@ -165,7 +164,7 @@ public class CTCToolkit extends CacioToolkit {
 
     @Override
     public FramePeer createLightweightFrame(LightweightFrame lightweightFrame) throws HeadlessException {
-        return null;
+        return new CacioLightweightFramePeer(lightweightFrame, platformWindowFactory);
     }
 
     @Override

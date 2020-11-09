@@ -88,6 +88,10 @@ public class CTCScreen implements PlatformScreen {
     int[] getRGBPixels(Rectangle bounds) {
         return screenBuffer.getRGB(bounds.x, bounds.y, bounds.width, bounds.height, null, 0, bounds.width);
     }
+    
+    int getRGBPixel(int x, int y) {
+        return screenBuffer.getRGB(x, y);
+    }
 
     // private static Canvas mAndroidCanvas = new Canvas(-1);
     // private static int[] currentRgbArray;
