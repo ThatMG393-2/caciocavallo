@@ -30,7 +30,7 @@ import java.awt.event.MouseEvent;
 
 import sun.awt.LightweightFrame;
 
-class CacioLightweightFramePeer extends CacioFramePeer {
+public class CacioLightweightFramePeer extends CacioFramePeer {
 
     public CacioLightweightFramePeer(LightweightFrame awtC, PlatformWindowFactory pwf) {
         super(awtC, pwf);
