@@ -18,6 +18,8 @@ class FontManagerUtil {
 
                 public Object run() {
                     try {
+                        System.setProperty("sun.font.fontmanager", fmClassName);
+                        
                         ClassLoader cl = ClassLoader.getSystemClassLoader();
                         Class<?> fmClass = Class.forName(fmClassName, true, cl);
                         FontManager instance = (FontManager) fmClass.getDeclaredConstructor().newInstance();
