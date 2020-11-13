@@ -248,15 +248,13 @@ public final class CTCFontManager extends FcFontManager {
             if (fontPath == null &&
                 (fileName == null || !fileName.startsWith("/"))) {
                 if (FontUtilities.debugFonts()) {
-                    FontUtilities.getLogger()
-                        .warning("** Registering all font paths because " +
+                    System.out.println("** Registering all font paths because " +
                                  "can't find file for " + platName);
                 }
                 fontPath = getPlatformFontPath(noType1Font);
                 registerFontDirs(fontPath);
                 if (FontUtilities.debugFonts()) {
-                    FontUtilities.getLogger()
-                        .warning("** Finished registering all font paths");
+                    System.out.println("** Finished registering all font paths");
                 }
                 fileName = (String)fontNameMap.get(fontID);
             }
@@ -313,7 +311,7 @@ public final class CTCFontManager extends FcFontManager {
          * ...
          */
         if (FontUtilities.debugFonts()) {
-            FontUtilities.getLogger().info("ParseFontDir " + path);
+            System.out.println("ParseFontDir " + path);
         }
         File fontsDotDir = new File(path + File.separator + "fonts.dir");
         FileReader fr = null;
@@ -417,15 +415,13 @@ public final class CTCFontManager extends FcFontManager {
                             }
                             Vector xVal = (Vector) xlfdMap.get(fullPath);
                             if (FontUtilities.debugFonts()) {
-                                FontUtilities.getLogger()
-                                    .info("fullPath=" + fullPath +
+                                System.out.println("fullPath=" + fullPath +
                                           " xVal=" + xVal);
                             }
                             if ((xVal == null || !xVal.contains(fontPart)) &&
                                 (sVal == null) || !sVal.startsWith("/")) {
                                 if (FontUtilities.debugFonts()) {
-                                    FontUtilities.getLogger()
-                                        .info("Map fontID:"+fontID +
+                                    System.out.println("Map fontID:"+fontID +
                                               "to file:" + fullPath);
                                 }
                                 fontNameMap.put(fontID, fullPath);
@@ -526,8 +522,7 @@ public final class CTCFontManager extends FcFontManager {
 
         if (hyphenCnt != 14) {
             if (FontUtilities.debugFonts()) {
-                FontUtilities.getLogger()
-                    .severe("Font Configuration Font ID is malformed:" + name);
+                System.out.println("Font Configuration Font ID is malformed:" + name);
             }
             return name; // what else can we do?
         }
@@ -556,8 +551,7 @@ public final class CTCFontManager extends FcFontManager {
 
         if (hyphenCnt != 14) {
             if (FontUtilities.debugFonts()) {
-                FontUtilities.getLogger()
-                    .severe("Font Configuration Font ID is malformed:" + name);
+                System.out.println("Font Configuration Font ID is malformed:" + name);
             }
             return name; // what else can we do?
         }
@@ -720,7 +714,7 @@ public final class CTCFontManager extends FcFontManager {
             if (FontUtilities.debugFonts() && fontConfigDirs != null) {
                 String[] names = fontConfigDirs.toArray(new String[0]);
                 for (int i=0;i<names.length;i++) {
-                    FontUtilities.getLogger().info("awtfontpath : " + names[i]);
+                    System.out.println("awtfontpath : " + names[i]);
                 }
             }
         }
