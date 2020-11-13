@@ -52,7 +52,6 @@ import sun.font.FcFontConfiguration;
 import sun.font.FontAccess;
 import sun.font.FontUtilities;
 import sun.font.NativeFont;
-import sun.util.logging.PlatformLogger;
 
 /**
  * The Cacio implementation of {@link FontManager}.
@@ -393,10 +392,9 @@ public final class CTCFontManager extends FcFontManager {
                             String sVal = (String) fontNameMap.get(fontID);
 
                             if (FontUtilities.debugFonts()) {
-                                PlatformLogger logger = FontUtilities.getLogger();
-                                logger.info("file=" + fileName +
+                                System.out.println("file=" + fileName +
                                             " xlfd=" + fontPart);
-                                logger.info("fontID=" + fontID +
+                                System.out.println("fontID=" + fontID +
                                             " sVal=" + sVal);
                             }
                             String fullPath = null;
