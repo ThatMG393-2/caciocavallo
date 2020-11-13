@@ -98,19 +98,13 @@ public class CTCFontConfiguration extends FontConfiguration {
         FontConfigManager fcm = fm.getFontConfigManager();
         if (fcCompFonts == null) {
             // TODO load all Android fonts auto
-            FontConfigFont[] fcFont = new FontConfigFont[2];
+            FontConfigFont[] fcFont = new FontConfigFont[1];
 
             fcFont[0] = new FontConfigFont();
-            fcFont[0].familyName = "Android Roboto Sans";
+            fcFont[0].familyName = "Lucida Sans";
             fcFont[0].styleStr = "Regular";
-            fcFont[0].fullName = "Android Roboto Sans Regular";
-            fcFont[0].fontFile = "/system/fonts/DroidSans.ttf";
-
-            fcFont[1] = new FontConfigFont();
-            fcFont[1].familyName = "Android Roboto Sans";
-            fcFont[1].styleStr = "Bold";
-            fcFont[1].fullName = "Android Roboto Sans Bold";
-            fcFont[1].fontFile = "/system/fonts/DroidSans-Bold.ttf";
+            fcFont[0].fullName = "Lucida Sans Regular";
+            fcFont[0].fontFile = "LucidaSansRegular.ttf";
 
             FcCompFont font = new FcCompFont();
             font.fcName = "sans"; //monospace
