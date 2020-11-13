@@ -67,7 +67,15 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
     }
     
     public CTCGraphicsEnvironment() {
-        SurfaceManagerFactory.setInstance(new CTCSurfaceManagerFactory());
+        SurfaceManagerFactory f;
+        try {
+            f = SurfaceManagerFactory getInstance();
+        } catch (IllegalStateException e) {
+            SurfaceManagerFactory.setInstance(new CTCSurfaceManagerFactory());
+        }
+        if (f != null && !f.getClass().getName().equals(CTCSurfaceManagerFactory.class.getName())) {
+            throw new IllegalStateException("The surface manager factory is already initialized to " + f.getClass().getName());
+        }
     }
 
     @Override
