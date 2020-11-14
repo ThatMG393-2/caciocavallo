@@ -44,6 +44,7 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
             if (Boolean.getBoolean(System.getProperty("java.awt.headless", "true"))) {
                 // Initialize headless mode first
                 Class.forName("java.awt.Toolkit");
+                drawStringTest();
 
                 // Set false it...
                 System.setProperty("java.awt.headless", "false");
@@ -56,6 +57,8 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
                 Field defaultHeadlessField = GraphicsEnvironment.class.getDeclaredField("defaultHeadless");
                 defaultHeadlessField.setAccessible(true);
                 defaultHeadlessField.set(null, Boolean.FALSE);
+                
+                drawStringTest();
             }
             
             // System.setProperty("awt.toolkit", "net.java.openjdk.cacio.ctc.CTCToolkit");
@@ -64,6 +67,15 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
             // System.err.println("Unable to unheadless:");
             th.printStackTrace();
         }
+    }
+    
+    private static void drawStringTest() {
+        BufferedImage img = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2d = (Graphics2D) img.createGraphics();
+        g2d.setPaint(Color.WHITE);
+        g2d.drawString("Test", 0, 4);
+        g2d.dispose();
+        img = null;
     }
     
     public CTCGraphicsEnvironment() {
