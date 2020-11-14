@@ -502,7 +502,7 @@ public final class CTCFontManager extends FcFontManager {
     }
 
     private boolean isHeadless() {
-        GraphicsEnvironment.getLocalGraphicsEnvironment();
+        // GraphicsEnvironment.getLocalGraphicsEnvironment();
         return true; // GraphicsEnvironment.isHeadless();
     }
 
