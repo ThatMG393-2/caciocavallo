@@ -67,9 +67,9 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
     }
     
     public CTCGraphicsEnvironment() {
-        SurfaceManagerFactory f;
+        SurfaceManagerFactory f = null;
         try {
-            f = SurfaceManagerFactory getInstance();
+            f = SurfaceManagerFactory.getInstance();
         } catch (IllegalStateException e) {
             SurfaceManagerFactory.setInstance(new CTCSurfaceManagerFactory());
         }
