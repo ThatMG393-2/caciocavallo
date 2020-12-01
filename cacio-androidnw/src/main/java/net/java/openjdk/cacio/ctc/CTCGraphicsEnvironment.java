@@ -58,6 +58,10 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
                 defaultHeadlessField.setAccessible(true);
                 defaultHeadlessField.set(null, Boolean.FALSE);
                 
+                Field localEnvField = GraphicsEnvironment.class.getDeclaredField("localEnv");
+                localEnvField.setAccessible(true);
+                localEnvField.set(null, new CTCGraphicsEnvironment());
+                
                 drawStringTest();
             }
             
