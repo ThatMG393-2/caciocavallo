@@ -37,7 +37,6 @@ public class CTCToolkit extends CacioToolkit {
         System.setProperty("swing.defaultlaf", "javax.swing.plaf.metal.MetalLookAndFeel");
     }
 
-    @Override
     public static boolean isHeadless() {
        return false;
     }
