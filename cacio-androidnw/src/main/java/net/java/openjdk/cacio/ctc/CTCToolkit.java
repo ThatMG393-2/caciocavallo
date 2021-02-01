@@ -38,6 +38,11 @@ public class CTCToolkit extends CacioToolkit {
     }
 
     @Override
+    public static boolean isHeadless() {
+       return false;
+    }
+
+    @Override
     public PlatformWindowFactory getPlatformWindowFactory() {
         if (platformWindowFactory == null) {
           CTCScreen screen = CTCScreen.getInstance();
