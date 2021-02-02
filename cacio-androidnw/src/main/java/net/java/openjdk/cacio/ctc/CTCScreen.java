@@ -104,7 +104,7 @@ public class CTCScreen implements PlatformScreen {
         // currentRgbArray = return instance.screenBuffer.getRGB(0, 0, width, height, null, 0, width);
         // mAndroidCanvas.drawBitmap(currentRgbArray, 0, width, 0, 0, width, height, true, null);
         
-        if (instance.screenBufferInt == null) {
+        if (instance.screenBuffer == null) {
             return null;
         } else {
             return /*instance.screenBuffer.getRGB(0, 0,
