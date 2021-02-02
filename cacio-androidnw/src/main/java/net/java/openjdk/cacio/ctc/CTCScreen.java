@@ -22,7 +22,7 @@ import java.io.*;
 public class CTCScreen implements PlatformScreen {
 
     private BufferedImage screenBuffer;
-
+    private int[] screenBufferInt;
     private static CTCScreen instance;
 
     static CTCScreen getInstance() {
@@ -35,6 +35,7 @@ public class CTCScreen implements PlatformScreen {
     private CTCScreen() {
         Dimension d = FullScreenWindowFactory.getScreenDimension();
         screenBuffer = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_ARGB);
+        screenBufferInt = ((DataBufferInt)(screenBuffer.getRaster().getDataBuffer())).getData();
 		/*
 		new Thread(new Runnable(){
 
@@ -94,7 +95,6 @@ public class CTCScreen implements PlatformScreen {
     }
 
     // private static Canvas mAndroidCanvas = new Canvas(-1);
-    // private static int[] currentRgbArray;
     public static int[] getCurrentScreenRGB(/* long nativeCanvas, int width, int height */) {
       /*
         if (instance.screenBuffer.getWidth() != width || instance.screenBuffer.getHeight() != height) {
@@ -105,13 +105,13 @@ public class CTCScreen implements PlatformScreen {
         // currentRgbArray = return instance.screenBuffer.getRGB(0, 0, width, height, null, 0, width);
         // mAndroidCanvas.drawBitmap(currentRgbArray, 0, width, 0, 0, width, height, true, null);
         
-        if (instance.screenBuffer == null) {
+        if (instance.screenBufferInt == null) {
             return null;
         } else {
-            return instance.screenBuffer.getRGB(0, 0,
+            return /*instance.screenBuffer.getRGB(0, 0,
                 (int) FullScreenWindowFactory.getScreenDimension().getWidth(),
                 (int) FullScreenWindowFactory.getScreenDimension().getHeight(),
-                null, 0, (int) FullScreenWindowFactory.getScreenDimension().getWidth());
+                null, 0, (int) FullScreenWindowFactory.getScreenDimension().getWidth());*/screenBufferInt;
         }
     }
     
