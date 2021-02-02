@@ -10,6 +10,7 @@ import java.awt.Rectangle;
 import java.awt.geom.Area;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
+import java.awt.image.DataBufferInt;
 import java.util.List;
 
 import javax.imageio.ImageIO;
