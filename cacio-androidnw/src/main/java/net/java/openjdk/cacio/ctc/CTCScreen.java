@@ -23,7 +23,6 @@ import java.io.*;
 public class CTCScreen implements PlatformScreen {
 
     private BufferedImage screenBuffer;
-    private int[] screenBufferInt;
     private static CTCScreen instance;
 
     static CTCScreen getInstance() {
@@ -36,7 +35,6 @@ public class CTCScreen implements PlatformScreen {
     private CTCScreen() {
         Dimension d = FullScreenWindowFactory.getScreenDimension();
         screenBuffer = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_ARGB);
-        screenBufferInt = ((DataBufferInt)(screenBuffer.getRaster().getDataBuffer())).getData();
 		/*
 		new Thread(new Runnable(){
 
@@ -112,7 +110,7 @@ public class CTCScreen implements PlatformScreen {
             return /*instance.screenBuffer.getRGB(0, 0,
                 (int) FullScreenWindowFactory.getScreenDimension().getWidth(),
                 (int) FullScreenWindowFactory.getScreenDimension().getHeight(),
-                null, 0, (int) FullScreenWindowFactory.getScreenDimension().getWidth());*/instance.screenBufferInt;
+                null, 0, (int) FullScreenWindowFactory.getScreenDimension().getWidth());*/((DataBufferInt)(instance.screenBuffer.getRaster().getDataBuffer())).getData();;
         }
     }
     
