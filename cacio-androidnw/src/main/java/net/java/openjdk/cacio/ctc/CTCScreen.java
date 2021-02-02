@@ -34,7 +34,7 @@ public class CTCScreen implements PlatformScreen {
 
     private CTCScreen() {
         Dimension d = FullScreenWindowFactory.getScreenDimension();
-        screenBuffer = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_RGB);
+        screenBuffer = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_ARGB);
 		/*
 		new Thread(new Runnable(){
 
@@ -94,6 +94,7 @@ public class CTCScreen implements PlatformScreen {
     }
 
     // private static Canvas mAndroidCanvas = new Canvas(-1);
+    private static int[] dataBufAux;
     public static int[] getCurrentScreenRGB(/* long nativeCanvas, int width, int height */) {
       /*
         if (instance.screenBuffer.getWidth() != width || instance.screenBuffer.getHeight() != height) {
@@ -107,10 +108,11 @@ public class CTCScreen implements PlatformScreen {
         if (instance.screenBuffer == null) {
             return null;
         } else {
+            dataBufAux=((DataBufferInt)(instance.screenBuffer.getRaster().getDataBuffer())).getData();
             return /*instance.screenBuffer.getRGB(0, 0,
                 (int) FullScreenWindowFactory.getScreenDimension().getWidth(),
                 (int) FullScreenWindowFactory.getScreenDimension().getHeight(),
-                null, 0, (int) FullScreenWindowFactory.getScreenDimension().getWidth());*/((DataBufferInt)(instance.screenBuffer.getRaster().getDataBuffer())).getData();
+                null, 0, (int) FullScreenWindowFactory.getScreenDimension().getWidth());*/dataBufAux;
         }
     }
     
