@@ -35,7 +35,7 @@ public class CTCScreen implements PlatformScreen {
 
     private CTCScreen() {
         Dimension d = FullScreenWindowFactory.getScreenDimension();
-        screenBuffer = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_ARGB);
+        screenBuffer = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_RGB);
 		/*
 		new Thread(new Runnable(){
 
@@ -116,14 +116,15 @@ public class CTCScreen implements PlatformScreen {
         if (instance.screenBuffer == null) {
             return null;
         } else {
-            //dataBufAux=((DataBufferInt)(instance.screenBuffer.getRaster().getDataBuffer())).getData();
-            if(dataBufAux == null) {
+            dataBufAux=((DataBufferInt)(instance.screenBuffer.getRaster().getDataBuffer())).getData();
+            /*if(dataBufAux == null) {
 		dataBufAux=new int[((int) FullScreenWindowFactory.getScreenDimension().getWidth()) * (int) FullScreenWindowFactory.getScreenDimension().getHeight()];
 	    }
             instance.screenBuffer.getRGB(0, 0,
                 (int) FullScreenWindowFactory.getScreenDimension().getWidth(),
                 (int) FullScreenWindowFactory.getScreenDimension().getHeight(),
-                dataBufAux, 0, (int) FullScreenWindowFactory.getScreenDimension().getWidth());
+                dataBufAux, 0, (int) FullScreenWindowFactory.getScreenDimension().getWidth());*/
+            
 	    return dataBufAux;
         }
     }
