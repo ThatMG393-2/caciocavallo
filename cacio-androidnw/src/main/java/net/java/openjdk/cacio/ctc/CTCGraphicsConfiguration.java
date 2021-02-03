@@ -6,7 +6,7 @@ import java.awt.GraphicsDevice;
 import java.awt.Rectangle;
 import java.awt.Transparency;
 import java.awt.geom.AffineTransform;
-import java.awt.image.ColorModel;
+import java.awt.image.*;
 
 import sun.awt.peer.cacio.managed.FullScreenWindowFactory;
 
