@@ -13,6 +13,7 @@ import java.awt.image.ColorModel;
 import java.awt.image.DataBufferInt;
 import java.util.List;
 import java.awt.event.PaintEvent;
+import java.awt.Rectangle;
 import javax.imageio.ImageIO;
 
 import sun.awt.peer.cacio.WindowClippedGraphics;
