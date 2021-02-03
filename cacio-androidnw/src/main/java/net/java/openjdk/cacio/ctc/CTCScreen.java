@@ -35,7 +35,7 @@ public class CTCScreen implements PlatformScreen {
 
     private CTCScreen() {
         Dimension d = FullScreenWindowFactory.getScreenDimension();
-        screenBuffer = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_RGB);
+        screenBuffer = new BufferedImage(d.width, d.height, BufferedImage.TYPE_INT_ARGB);
 		/*
 		new Thread(new Runnable(){
 
