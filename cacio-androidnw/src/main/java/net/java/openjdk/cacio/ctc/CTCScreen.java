@@ -108,7 +108,7 @@ public class CTCScreen implements PlatformScreen {
         EventData ed = new EventData();
 	ed.setSource(instance);
         ed.setUpdateRect(new Rectangle(FullScreenWindowFactory.getScreenDimension()));
-        ed.setId(PaintEvent.PAINT);
+        ed.setId(PaintEvent.UPDATE);
         CTCEventSource.getInstance().postEvent(ed);
         ed=null;
         if (instance.screenBuffer == null) {
