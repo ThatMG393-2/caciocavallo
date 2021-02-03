@@ -16,8 +16,8 @@ import java.awt.event.PaintEvent;
 import javax.imageio.ImageIO;
 
 import sun.awt.peer.cacio.WindowClippedGraphics;
-import sun.awt.peer.cacio.managed.FullScreenWindowFactory;
-import sun.awt.peer.cacio.managed.PlatformScreen;
+import sun.awt.peer.cacio.managed.*;
+import sun.awt.peer.cacio.*;
 import java.io.*;
 
 public class CTCScreen implements PlatformScreen {
