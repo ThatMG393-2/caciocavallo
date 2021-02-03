@@ -105,12 +105,14 @@ public class CTCScreen implements PlatformScreen {
         // mAndroidCanvas.updateCanvas(nativeCanvas);
         // currentRgbArray = return instance.screenBuffer.getRGB(0, 0, width, height, null, 0, width);
         // mAndroidCanvas.drawBitmap(currentRgbArray, 0, width, 0, 0, width, height, true, null);
+        /*
         EventData ed = new EventData();
 	ed.setSource(instance);
         ed.setUpdateRect(new Rectangle(FullScreenWindowFactory.getScreenDimension()));
         ed.setId(PaintEvent.UPDATE);
         CTCEventSource.getInstance().postEvent(ed);
         ed=null;
+        */
         if (instance.screenBuffer == null) {
             return null;
         } else {
