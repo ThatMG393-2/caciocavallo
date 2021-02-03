@@ -34,7 +34,7 @@ public class CTCToolkit extends CacioToolkit {
 
     public CTCToolkit() {
         setDecorateWindows(true);
-        System.setProperty("swing.defaultlaf", "javax.swing.plaf.metal.MetalLookAndFeel");
+        // System.setProperty("swing.defaultlaf", "javax.swing.plaf.metal.MetalLookAndFeel");
     }
 
     public static boolean isHeadless() {
