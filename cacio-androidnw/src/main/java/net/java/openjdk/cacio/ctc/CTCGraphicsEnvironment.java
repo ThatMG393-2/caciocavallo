@@ -25,7 +25,7 @@ public class CTCGraphicsEnvironment extends SunGraphicsEnvironment {
 
         // android.os.OpenJDKNativeRegister.registerNatives();
     
-        // We should force set instead of use property, as property one get ignored
+        // We should force set instead of use property, as property one get ignored (?)
         String propertyFontManager = System.getProperty("cacio.font.fontmanager");
         if (propertyFontManager != null) {
             FontManagerUtil.setFontManager(propertyFontManager);

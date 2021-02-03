@@ -29,19 +29,27 @@ public class CTCGraphicsConfiguration extends GraphicsConfiguration {
 
     @Override
     public ColorModel getColorModel(int transparency) {
-        return ColorModel.getRGBdefault();
+        switch (transparency) {
+            case Transparency.OPAQUE:
+                return new DirectColorModel(24, 0xff0000, 0xff00, 0xff);
+            case Transparency.BITMASK:
+                return new DirectColorModel(25, 0xff0000, 0xff00, 0xff, 0x1000000);
+            case Transparency.TRANSLUCENT:
+                return ColorModel.getRGBdefault();
+            default:
+                return null;
+        }
     }
 
     @Override
     public AffineTransform getDefaultTransform() {
         // TODO Auto-generated method stub
-        return null;
+        return new AffineTransform();
     }
 
     @Override
     public AffineTransform getNormalizingTransform() {
-        // TODO Auto-generated method stub
-        return null;
+        return new AffineTransform();
     }
 
     @Override

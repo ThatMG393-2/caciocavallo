@@ -88,9 +88,11 @@ public abstract class CacioToolkit extends SunToolkit {
 
     private static final int screenResolution;
     static {
+        /*
         if (isLinux()) {
-            System.setProperty("sun.font.fontmanager", "sun.awt.FcFontManager" /*"sun.awt.peer.cacio.CacioFontManager"*/);
+            System.setProperty("sun.font.fontmanager", "sun.awt.FcFontManager");
         }
+        */
         String resolution = System.getProperty("cacio.screenResolution");
         int res = DEFAULT_SCREEN_RESOLUTION;
         if (resolution != null) {
