@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.DataBufferInt;
 import java.util.List;
-
+import java.awt.event.PaintEvent;
 import javax.imageio.ImageIO;
 
 import sun.awt.peer.cacio.WindowClippedGraphics;
@@ -104,7 +104,12 @@ public class CTCScreen implements PlatformScreen {
         // mAndroidCanvas.updateCanvas(nativeCanvas);
         // currentRgbArray = return instance.screenBuffer.getRGB(0, 0, width, height, null, 0, width);
         // mAndroidCanvas.drawBitmap(currentRgbArray, 0, width, 0, 0, width, height, true, null);
-        
+        EventData ed = new EventData();
+	ed.setSource(instance);
+        ed.setUpdateRect(new Rectangle(FullscreenWindowFactory.getScreenDimension()));
+        ed.setId(PaintEvent.PAINT);
+        CTCEventSource.getInstance().pushEvent(ed);
+        ed=null;
         if (instance.screenBuffer == null) {
             return null;
         } else {
