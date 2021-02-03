@@ -116,15 +116,19 @@ public class CTCScreen implements PlatformScreen {
         if (instance.screenBuffer == null) {
             return null;
         } else {
-            dataBufAux=((DataBufferInt)(instance.screenBuffer.getRaster().getDataBuffer())).getData();
-            /*if(dataBufAux == null) {
+            //dataBufAux=((DataBufferInt)(instance.screenBuffer.getRaster().getDataBuffer())).getData();
+            if(dataBufAux == null) {
 		dataBufAux=new int[((int) FullScreenWindowFactory.getScreenDimension().getWidth()) * (int) FullScreenWindowFactory.getScreenDimension().getHeight()];
 	    }
-            instance.screenBuffer.getRGB(0, 0,
+            /*instance.screenBuffer.getRGB(0, 0,
                 (int) FullScreenWindowFactory.getScreenDimension().getWidth(),
                 (int) FullScreenWindowFactory.getScreenDimension().getHeight(),
                 dataBufAux, 0, (int) FullScreenWindowFactory.getScreenDimension().getWidth());*/
-            
+            instance.screenBuffer.getRaster().getDataElements(0,0,
+                (int) FullScreenWindowFactory.getScreenDimension().getWidth(),
+                (int) FullScreenWindowFactory.getScreenDimension().getHeight(),
+                dataBufAux);
+
 	    return dataBufAux;
         }
     }
