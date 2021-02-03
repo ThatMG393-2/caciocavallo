@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.Rectangle;
+import java.awt.Transparency;
 import java.awt.geom.AffineTransform;
 import java.awt.image.ColorModel;
 
