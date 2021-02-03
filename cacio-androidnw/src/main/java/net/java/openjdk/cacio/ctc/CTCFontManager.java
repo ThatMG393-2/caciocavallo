@@ -56,7 +56,7 @@ import sun.font.NativeFont;
 /**
  * The Cacio implementation of {@link FontManager}.
  */
-public final class CTCFontManager extends FcFontManager {
+public final class CTCFontManager extends X11FontManager { // FcFontManager {
 
     // constants identifying XLFD and font ID fields
     private static final int FOUNDRY_FIELD = 1;
