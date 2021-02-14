@@ -177,4 +177,27 @@ public class CTCToolkit extends CacioToolkit {
         // TODO implement for copy paste bridge Android
         return null;
     }
+    
+    // Cosntant alpha
+    @Override
+    public boolean isWindowOpacitySupported() {
+        return true;
+    }
+
+    // Shaping
+    @Override
+    public boolean isWindowShapingSupported() {
+        return true;
+    }
+
+    // Per-pixel alpha
+    @Override
+    public boolean isWindowTranslucencySupported() {
+        return true;
+    }
+
+    @Override
+    public boolean isTranslucencyCapable(GraphicsConfiguration gc) {
+        return true;
+    }
 }
