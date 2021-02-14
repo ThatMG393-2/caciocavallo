@@ -3,6 +3,7 @@ package net.java.openjdk.cacio.ctc;
 import java.awt.AWTException;
 import java.awt.Desktop;
 import java.awt.Frame;
+import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.HeadlessException;
 import java.awt.PrintJob;
