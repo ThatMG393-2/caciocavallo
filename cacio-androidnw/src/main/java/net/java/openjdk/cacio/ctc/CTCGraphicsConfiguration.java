@@ -59,4 +59,9 @@ public class CTCGraphicsConfiguration extends GraphicsConfiguration {
         return new Rectangle(0, 0, d.width, d.height);
     }
 
+    @Override
+    public final boolean isTranslucencyCapable() {
+        //we know for sure we have capable config :)
+        return true;
+    }
 }
