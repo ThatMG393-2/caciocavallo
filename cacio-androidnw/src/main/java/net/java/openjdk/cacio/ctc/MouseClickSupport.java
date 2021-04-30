@@ -80,7 +80,8 @@ class MouseClickSupport {
     }
 
     private boolean isClick(EventData ev) {
-        return lastPress.getButton() == ev.getButton()
+        return lastPress != null
+               && lastPress.getButton() == ev.getButton()
                && lastPress.getX() == ev.getX()
                && lastPress.getY() == ev.getY();
     }
