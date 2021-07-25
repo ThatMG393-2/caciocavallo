@@ -4,8 +4,9 @@ import java.security.*;
 
 public class CTCLibraryHelper {
     public static void loadAWTHeadlessLibrary() {
-        AccessController.doPrivileged((PrivilegedAction<Void>) () -> {
+        AccessController.doPrivileged((PrivilegedAction<Object>) () -> {
             System.loadLibrary("awt_headless");
+            return null;
         });
     }
 }
