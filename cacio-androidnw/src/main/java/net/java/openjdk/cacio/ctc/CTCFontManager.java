@@ -656,7 +656,6 @@ public final class CTCFontManager extends FcFontManager {
      */
     @Override
     protected void registerFontDirs(String pathName) {
-        System.out.println("registering " + pathName);
 
         StringTokenizer parser = new StringTokenizer(pathName,
                                                      File.pathSeparator);
