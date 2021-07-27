@@ -252,6 +252,10 @@ public final class CTCFontManager extends FcFontManager {
                                  "can't find file for " + platName);
                 }
                 fontPath = getPlatformFontPath(noType1Font);
+                if (fontPath == null) {
+                    fontPath = System.getProperty("cacio.font.path",
+                        System.getProperty("java.home") + "/lib/fonts");
+                }
                 registerFontDirs(fontPath);
                 if (FontUtilities.debugFonts()) {
                     System.out.println("** Finished registering all font paths");
