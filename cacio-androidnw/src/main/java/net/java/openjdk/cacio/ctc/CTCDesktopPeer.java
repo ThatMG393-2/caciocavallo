@@ -15,9 +15,12 @@ public class CTCDesktopPeer implements DesktopPeer {
        default:
          return false;
      }
-   }
+  }
+  private static native openFile(String path);
+  private static native openUri(String uri);
+   
   public void open(File file) throws IOException {
-    System.out.println("peer open: "+file.getAbsolutePath());
+    openFile(file.getAbsolutePath());
   }
   public void edit(File file) throws IOException {
     throw new IOException("Action not supported");
@@ -29,6 +32,6 @@ public class CTCDesktopPeer implements DesktopPeer {
     throw new IOException("Action not supported");
   }
   public void browse(URI uri) throws IOException {
-    System.out.println("peer browse: "+uri.toString());
+    openUri(uri.toString());
   }
 }
