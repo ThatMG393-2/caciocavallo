@@ -32,7 +32,11 @@ import sun.awt.peer.cacio.managed.FullScreenWindowFactory;
 public class CTCToolkit extends CacioToolkit {
 
     private PlatformWindowFactory platformWindowFactory;
-
+    
+    static {
+        System.loadLibaray("pojavexec_awt");
+    }
+    
     public CTCToolkit() {
         setDecorateWindows(true);
         // System.setProperty("swing.defaultlaf", "javax.swing.plaf.metal.MetalLookAndFeel");
