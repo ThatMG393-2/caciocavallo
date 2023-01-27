@@ -16,8 +16,8 @@ public class CTCDesktopPeer implements DesktopPeer {
          return false;
      }
   }
-  private static native openFile(String path);
-  private static native openUri(String uri);
+  private static native void openFile(String path);
+  private static native void openUri(String uri);
    
   public void open(File file) throws IOException {
     openFile(file.getAbsolutePath());
