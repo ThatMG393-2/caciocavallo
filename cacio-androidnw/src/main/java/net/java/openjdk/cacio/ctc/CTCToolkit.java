@@ -34,7 +34,7 @@ public class CTCToolkit extends CacioToolkit {
     private PlatformWindowFactory platformWindowFactory;
     
     static {
-        System.loadLibaray("pojavexec_awt");
+        System.loadLibrary("pojavexec_awt");
     }
     
     public CTCToolkit() {
