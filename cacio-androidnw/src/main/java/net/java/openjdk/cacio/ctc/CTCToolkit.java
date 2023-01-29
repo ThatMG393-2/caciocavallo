@@ -1,11 +1,14 @@
 package net.java.openjdk.cacio.ctc;
 
 import java.awt.AWTException;
+import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Frame;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.HeadlessException;
+import java.awt.Image;
+import java.awt.Point;
 import java.awt.PrintJob;
 import java.awt.Robot;
 import java.awt.SystemTray;
@@ -98,7 +101,7 @@ public class CTCToolkit extends CacioToolkit {
     @Override
     public RobotPeer createRobot(Robot target, GraphicsDevice screen)
             throws AWTException {
-        return new CTCRobotPeer();
+        return new CTCRobotPeer(Boolean.parseBoolean(System.getProperty("net.openjdk.cacio.ctc.CTCToolkit.enableInfdevMouseHandler","true")));
     }
 
     @Override
@@ -205,4 +208,10 @@ public class CTCToolkit extends CacioToolkit {
     public boolean isTranslucencyCapable(GraphicsConfiguration gc) {
         return true;
     }
+    
+    @Override
+     public Cursor createCustomCursor(Image cursor, Point hotSpot, String name) {
+         System.out.println("cursor="+cursor+" hotspot="+hotSpot.toString()+" name="+name);
+         return new Cursor(Cursor.DEFAULT_CURSOR);
+     }
 }
