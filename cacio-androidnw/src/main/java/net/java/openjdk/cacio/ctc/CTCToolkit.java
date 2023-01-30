@@ -37,7 +37,9 @@ public class CTCToolkit extends CacioToolkit {
     private PlatformWindowFactory platformWindowFactory;
     
     static {
-        System.load(System.getenv("POJAV_NATIVEDIR")+"/libpojavexec_awt.so");
+        if (System.getProperty("os.name").equals("Linux")) {
+            System.load(System.getenv("POJAV_NATIVEDIR")+"/libpojavexec_awt.so");
+        }
     }
     
     public CTCToolkit() {
