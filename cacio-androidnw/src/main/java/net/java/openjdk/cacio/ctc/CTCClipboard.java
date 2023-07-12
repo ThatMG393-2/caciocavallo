@@ -75,7 +75,6 @@ public class CTCClipboard extends Clipboard {
     
     @SuppressWarnings("unused")
     private static void systemClipboardDataReceived(String clipboardData, String clipboardDataMime) {
-        System.out.println("Received data: "+clipboardData + " "+clipboardDataMime);
         synchronized(sSyncLock) {
             lastClipboardCheckTime = System.currentTimeMillis();
             INSTANCE.contents = new CTCStringTransferable(clipboardData, clipboardDataMime);
