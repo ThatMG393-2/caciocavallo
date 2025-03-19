@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         distribution: temurin
-        java-version: 1.8
+        java-version: 8
     - name: Build Maven and copy output
       run: bash build_and_out.bash
 
