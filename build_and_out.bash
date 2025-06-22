@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+echo "h"
+
 mvn -B package --file pom.xml -DskipTests
 
 rm -rf out
